@@ -350,6 +350,9 @@ class SparcDataset:
         if os.path.exists(banner_file):
             dataset_archive.write(pathlib_path(banner_file), 'files/banner.svg')
 
+        # add submission file
+        self.__add_submission(dataset_archive, 'files/submission.xlsx')
+
         # close archive
         dataset_archive.close()
 
@@ -378,5 +381,55 @@ class SparcDataset:
                 else:
                     metadata += [str(val), '\n']
         return metadata
+        
+    def __add_change_log(self, archive, filepath):
+        repo = self.__manifest.git_repository._MapRepository__repo
+        commits = repo.iter_commits()
+        change = []
+        for commit in commits:
+            commit_hash = commit.hexsha
+            commit_message = commit.message
+            change += [f'Commit: {commit_hash}\nMessage: {commit_message}\n']
+        archive.writestr(f'{filepath}', '\n'.join(change))
+
+    def __add_submission(self, archive, filepath):
+        workbook = openpyxl.Workbook()
+        worksheet = workbook.active
+        columns = ['Submission Item', 'Definition', 'Value']
+        header_fill = openpyxl.styles.PatternFill(start_color="B8CCE4", end_color="B8CCE4", fill_type="solid")
+        col_width = [30, 45, 30]
+        for col, value in enumerate(columns, start=1):
+            cell = worksheet.cell(row=1, column=col, value=value)
+            cell.fill = header_fill
+            column_letter = cell.column_letter
+            worksheet.column_dimensions[column_letter].width = col_width[col-1]
+        items = [
+            'Consortium data standard',
+            'Funding consortium ',
+            'Award number',
+            'Milestone achieved',
+            'Milestone completion date',
+        ]
+        for row, item in enumerate(items, start=2):
+            worksheet.cell(row=row, column=1, value=item)
+        definitions = [
+            'Name of the consortium data standard under which this dataset will be processed. Examples: SPARC, HEAL',
+            'SPARC, SPARC-2, VESPA, REVA, HORNET, REJOIN-HEAL, EXTERNAL',
+            'Primary grant number supporting the milestone.',
+            'From milestones supplied to NIH',
+            'Date of milestone completion. Refer to your consortium for detailed information.'
+        ]
+        for row, definition in enumerate(definitions, start=2):
+            worksheet.cell(row=row, column=2, value=definition)
+        worksheet.cell(row=2, column=3, value='SPARC')
+        worksheet.cell(row=3, column=3, value='SPARC')
+        worksheet.cell(row=4, column=3, value=self.__description.get_json().get('funding', ''))
+        worksheet.cell(row=5, column=3, value='N/A')
+        worksheet.cell(row=6, column=3, value='N/A')
+        workbook.save(buffer := BytesIO())
+        workbook.close()
+        buffer.seek(0)
+        archive.writestr(f'{filepath}', buffer.getvalue())
+        buffer.close()
         
 #===============================================================================
