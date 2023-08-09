@@ -395,11 +395,9 @@ class SparcDataset:
                     if isinstance(subval, dict):
                         for subsubkey, subsubval in subval.items():
                             metadata += [f'- {subsubkey}: {subsubval}']
-                        # metadata += ['\n', '<br/>', '\n']
                     else:
                         metadata += [f'- {subval}']
             else:
-                # metadata += [str(val), '\n']
                 metadata += [str(val)]
         return metadata
 
