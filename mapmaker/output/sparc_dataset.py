@@ -85,7 +85,6 @@ class VersionMapping:
 class DatasetDescription:
     def __init__(self, flatmap, version):
         """
-        : description_file: is a pat to description.json.
         : flatmap: is a Flatmap instance.
         : version: is SDS version.
         """
@@ -97,7 +96,7 @@ class DatasetDescription:
 
         self.__mapping = VersionMapping().get_mapping(other_params)
         self.__workbook = self.__load_template_workbook(
-            self.__mapping['template_description'])
+            self.__mapping['templates']['description']['url'])
 
     def write(self, description_file):
         if description_file.startswith('file'):
@@ -118,7 +117,7 @@ class DatasetDescription:
 
     def __write_cell(self, map):
         worksheet = self.__workbook.worksheets[0]
-        data_pos = self.__mapping.get('data_pos', 3)
+        data_pos = self.__mapping['templates']['description']['data_pos']
         key, dsc, default = map
         values = default if isinstance(default, list) else [default]
 
