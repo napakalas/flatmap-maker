@@ -1,6 +1,6 @@
 [
     {
-        "version": "2.1.0",
+        "version": "dataset-template-2.1.0",
         "mapping": [
             ["type", [], "computational"],
             ["title", ["title"], ""],
@@ -30,20 +30,11 @@
             ["number of subjects", [], "0"],
             ["number of samples", [], "0"]
         ],
-        "templates":{
-            "description": {
-                "url": "https://github.com/SciCrunch/sparc-curation/blob/7163299651648c6286231a0ca071f48c1d4d3bc5/resources/DatasetTemplate/dataset_description.xlsx?raw=true",
-                "data_pos" : 3
-            },
-            "submission": {
-                "url": "https://github.com/SciCrunch/sparc-curation/blob/7163299651648c6286231a0ca071f48c1d4d3bc5/resources/DatasetTemplate/submission.xlsx?raw=true",
-                "data_pos" : 2
-            }
-        },
+        "data_pos": 3,
         "_meta": {"mapping": "is a list of list containing ['field in template', 'fields in description.json', 'default value']"}
     },
     {
-        "version": "1.2.3",
+        "version": "dataset-template-1.2.3",
         "mapping": [
             ["metadata version do not change", [], "1.2.3"],
             ["name", ["title"], ""],
@@ -61,15 +52,6 @@
             ["number of subjects", [], "0"],
             ["number of samples", [], "0"]
         ],
-        "templates":{
-            "description": {
-                "url": "https://github.com/SciCrunch/sparc-curation/blob/ed38ffc61aebd28176827f04448cc68e56ac19f5/resources/DatasetTemplate/dataset_description.xlsx?raw=true",
-                "data_pos" : 3
-            },
-            "submission": {
-                "url": "https://github.com/SciCrunch/sparc-curation/blob/ed38ffc61aebd28176827f04448cc68e56ac19f5/resources/DatasetTemplate/submission.xlsx?raw=true",
-                "data_pos" : 2
-            }
-        }
+        "data_pos": 3
     }
 ]

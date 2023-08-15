@@ -44,67 +44,42 @@ from mapmaker.utils import pathlib_path
 MAPPING_URL = "mapmaker/output/data_mapping.json"
 PRIMARY = 0
 DERIVATIVE = 1
+GIT_RELEASE = "https://api.github.com/repos/SciCrunch/sparc-curation/git/refs/tags/{tag}"
+GIT_TEMPLATE = "https://github.com/SciCrunch/sparc-curation/blob/{sha}/resources/DatasetTemplate/{file}.xlsx?raw=true"
 
 # ===============================================================================
 
 
 class VersionMapping:
-    def __init__(self):
+    def __init__(self, version=None):
         with open(MAPPING_URL, 'r') as f:
-            self.__mappings = json.load(f)
+            mappings = json.load(f)
+            self.__mapping = None
+            if version is None:
+                self.__mapping = mappings[0]
+            else:
+                for v in mappings:
+                    if v['version'] == version:
+                        self.__mapping = v
+            if self.__mapping is None:
+                raise Exception(
+                    f'Dataset-Description version-{version} is not available')
 
-    @property
-    def available_versions(self):
-        return [v['version'] for v in self.__mappings]
+            # get SHA
+            git_release = GIT_RELEASE.format(tag=self.__mapping['version'])
+            response = requests.get(git_release, timeout=10).json()
+            self.__sha = response['object']['sha']
 
     def get_mapping(self, other_params):
         """
         : other_params: is a dictionary containing other data such as uuid and version.
         """
-        version = other_params.get('version', None)
-        mapping = None
-        if version is None:
-            mapping = self.__mappings[0]
-        else:
-            for v in self.__mappings:
-                if v['version'] == version:
-                    mapping = v
-        if mapping is None:
-            raise Exception(
-                'Dataset-Description version-{} is not available'.format(version))
-        for m in mapping['mapping']:
+        for m in self.__mapping['mapping']:
             if len(m[1]) > 0:
                 param = m[1][-1]
                 if param in other_params:
                     m[2] = other_params[param]
-        return mapping
-
-# ===============================================================================
-
-
-class DatasetDescription:
-    def __init__(self, flatmap, version):
-        """
-        : flatmap: is a Flatmap instance.
-        : version: is SDS version.
-        """
-
-        other_params = {'version': version}
-        other_params['id'] = ['URL', 'UUID']
-        other_params['id_type'] = [
-            flatmap.metadata.get('source'), flatmap.uuid]
-
-        self.__mapping = VersionMapping().get_mapping(other_params)
-        self.__workbook = self.__load_template_workbook(
-            self.__mapping['templates']['description']['url'])
-
-    def write(self, description_file):
-        if description_file.startswith('file'):
-            description_file = pathlib_path(description_file)
-        with open(description_file, 'r') as fd:
-            self.__description = json.load(fd)
-        for m in self.__mapping['mapping']:
-            self.__write_cell(m)
+        return self.__mapping
 
     def __load_template_workbook(self, template_link):
         """
@@ -115,9 +90,45 @@ class DatasetDescription:
         workbook = openpyxl.load_workbook(BytesIO(template.content))
         return workbook
 
+    @property
+    def description_template(self):
+        url = GIT_TEMPLATE.format(sha=self.__sha, file="dataset_description")
+        return self.__load_template_workbook(url)
+
+    @property
+    def submission_template(self):
+        url = GIT_TEMPLATE.format(sha=self.__sha, file="submission")
+        return self.__load_template_workbook(url)
+
+# ===============================================================================
+
+
+class DatasetDescription:
+    def __init__(self, flatmap, version):
+        """
+        : flatmap: is a Flatmap instance.
+        : version: is SDS version.
+        """
+        other_params = {
+            'id': ['URL', 'UUID'],
+            'id_type': [flatmap.metadata.get('source'), flatmap.uuid]
+            }
+
+        version_mapping = VersionMapping(version)
+        self.__mapping =version_mapping.get_mapping(other_params)
+        self.__desc_workbook = version_mapping.description_template
+
+    def write(self, description_file):
+        if description_file.startswith('file'):
+            description_file = pathlib_path(description_file)
+        with open(description_file, 'r') as fd:
+            self.__description = json.load(fd)
+        for m in self.__mapping['mapping']:
+            self.__write_cell(m)
+
     def __write_cell(self, map):
-        worksheet = self.__workbook.worksheets[0]
-        data_pos = self.__mapping['templates']['description']['data_pos']
+        worksheet = self.__desc_workbook.worksheets[0]
+        data_pos = self.__mapping['data_pos']
         key, dsc, default = map
         values = default if isinstance(default, list) else [default]
 
@@ -146,7 +157,7 @@ class DatasetDescription:
 
     def get_bytes(self):
         buffer = BytesIO()
-        self.__workbook.save(buffer)
+        self.__desc_workbook.save(buffer)
         buffer.seek(0)
         return buffer
 
@@ -154,7 +165,7 @@ class DatasetDescription:
         return self.__description
 
     def close(self):
-        self.__workbook.close()
+        self.__desc_workbook.close()
 
 # ===============================================================================
 
@@ -178,24 +189,13 @@ class DirectoryManifest:
         'file type',
     )
 
-    def __init__(self, manifest, data_type=PRIMARY, metadata_columns: Optional[list[str]] = None):
-        self.__manifest = manifest
+    def __init__(self, metadata_columns: Optional[list[str]] = None):
         self.__metadata_columns = metadata_columns if metadata_columns is not None else []
         self.__files = []
         self.__file_records = []
-        self.__repo_datetime = None
-        if data_type == PRIMARY:
-            commit = self.__manifest.git_repository._MapRepository__repo.head.commit
-            tzinfo = timezone(timedelta(seconds=commit.author_tz_offset))
-            commit_time = datetime.fromtimestamp(
-                float(commit.committed_date), tzinfo)
-            self.__repo_datetime = commit_time
 
     def __get_repo_datetime(self, fullpath):
-        if self.__repo_datetime is not None:
-            return self.__repo_datetime
-        else:
-            return datetime.fromtimestamp(fullpath.stat().st_mtime)
+        return datetime.fromtimestamp(fullpath.stat().st_mtime)
 
     @property
     def files(self):
@@ -254,8 +254,7 @@ class FlatmapSource:
         species = manifest.models
         metadata = {'species': species} if species is not None else {}
 
-        directory_manifest = DirectoryManifest(
-            manifest, data_type, list(metadata.keys()))
+        directory_manifest = DirectoryManifest(list(metadata.keys()))
 
         if data_type == PRIMARY:
             # adding files to be store in primary directory
@@ -283,6 +282,7 @@ class FlatmapSource:
             directory_manifest.add_file(
                 manifest_path, 'manifest to built map', **metadata)
         elif data_type == DERIVATIVE:
+            
             for file in pathlib_path(flatmap.map_dir).glob('[!.]*'):
                 if file.is_file():
                     directory_manifest.add_file(
