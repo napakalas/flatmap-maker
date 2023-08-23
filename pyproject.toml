@@ -41,6 +41,7 @@ types-requests = "^2.28.11.2"
 colormath = "^3.0.0"
 pandas = "^1.5.3"
 svgelements = "^1.9.1"
+npoexplorer = {url = "https://github.com/napakalas/npo_explorer/releases/download/v0.0.2-gamma/npoexplorer-0.0.2-py3-none-any.whl"}
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.982"

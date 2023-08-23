@@ -57,7 +57,7 @@ def arg_parser():
                         help="Include functional connectivity neurons that aren't known in SCKAN")
     generation_options.add_argument('--publish', metavar='SPARC_DATASET',
                         help="Create a SPARC Dataset containing the map's sources and the generated map")
-    generation_options.add_argument('--sckan-version', dest='sckanVersion', choices=['production', 'staging'],
+    generation_options.add_argument('--sckan-version', dest='sckanVersion', choices=['production', 'staging', 'npo'],
                         help="Overide version of SCKAN specified by map's manifest")
 
     debug_options = parser.add_argument_group('Diagnostics')

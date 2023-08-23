@@ -147,9 +147,12 @@ class MapMaker(object):
 
         # Our source of knowledge, updated with information about maps we've made, held in a global place
         sckan_version = settings.get('sckanVersion', self.__manifest.sckan_version)
-        knowledge_store = knowledgebase.KnowledgeStore(map_base,
-                                         clean_connectivity=settings.get('cleanConnectivity', False),
-                                         sckan_version=sckan_version)
+        if sckan_version in ['staging', 'production']:
+            knowledge_store = knowledgebase.KnowledgeStore(map_base,
+                                            clean_connectivity=settings.get('cleanConnectivity', False),
+                                            sckan_version=sckan_version)
+        elif sckan_version == 'npo':
+            knowledge_store = knowledgebase.NPOKnowledgeStore()
         settings['KNOWLEDGE_STORE'] = knowledge_store
 
         self.__sckan_build = knowledgebase.sckan_build()
@@ -512,6 +515,6 @@ class MapMaker(object):
         with open(os.path.join(self.__map_dir, 'style.json'), 'w') as output_file:
             json.dump(style_dict, output_file)
 
-        tile_db.close();
+        tile_db.close()
 
 #===============================================================================
