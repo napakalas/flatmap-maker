@@ -65,7 +65,8 @@ class PropertiesStore(object):
 
         # Connectivity from SciCrunch
         connectivity_models = knowledgebase.connectivity_models()
-        for connectivity_model in manifest.neuron_connectivity:
+        manifest_neuron_connectivity = connectivity_models.keys() if 'NPO' in manifest.neuron_connectivity else manifest.neuron_connectivity
+        for connectivity_model in manifest_neuron_connectivity:
             path_filter = None
             traced_paths = None
             if isinstance(connectivity_model, dict):
