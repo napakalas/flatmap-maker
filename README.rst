@@ -279,3 +279,20 @@ In development mode, and within the Python virtual environment::
     $ cd docs
     $ make html
 
+About this branch: npo-compare:
+-------------------------------
+We need to analyse FC map:
+    1. How it cover SCKAN / NPO?
+    2. Is this consistent with SCKAN / NPO?
+    3. FC neurons which are not covered by SCKAN / NPO
+We do the following:
+    1. Draw connectivities from NPO and create lists of:
+        - complete neurons
+        - partially draw neurons:
+            - including missing nodes and edges
+        - missing neurons
+    2. Compared to FC Maps manually identified neurons. For each neurons in FC, set status of:
+        - complete: if identified complete by NPO
+        - partial: if identified partial by NPO 
+        - missing: if identified missing by NPO
+        - new: if not available in NPO

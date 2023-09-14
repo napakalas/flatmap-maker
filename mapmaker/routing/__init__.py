@@ -1096,6 +1096,30 @@ class Network(object):
         if debug:
             return (route_graph, G, connectivity_graph, terminal_graphs)    # type: ignore
         else:
+            # need to log incomplete neuron connectivities
+            if len(connectivity_graph.edges) > len(route_graph.edges):
+                log.warning(f' * * {path.id}: {"missing" if len(route_graph.edges) == 0 else "partial"}')
+                log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
+                log.warning(f' - - missing_nodes: {connectivity_graph.nodes & self.__missing_identifiers}')
+                generalised = {}
+                for node_id, node in connectivity_graph.nodes(data=True):
+                    if len(node['node'][1]) + 1 > len(node['name'].split('/')):
+                        generalised[node_id] = node['name']
+                log.warning(f' - - generalised_nodes: {generalised}')
+
+                edges = []
+                for node1, node2, type in route_graph.edges(data=True):
+                    if 'models' in route_graph.nodes(data=True)[node1] and 'models' in route_graph.nodes(data=True)[node2]:
+                        edges += [(
+                            (route_graph.nodes(data=True)[node1]['models'], (),),
+                            (route_graph.nodes(data=True)[node2]['models'], (),)
+                        )]
+                log.warning(f' - - original_edges: {connectivity_graph.edges}')
+                log.warning(f' - - rendered_edges: {edges}')
+                log.warning(f' - - missing_edges: {connectivity_graph.edges-set(edges)}')
+            elif len(connectivity_graph.edges) > 0:
+                log.warning(f' * * {path.id}: complete')
+
             return route_graph
 
 #===============================================================================
