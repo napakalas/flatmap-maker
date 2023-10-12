@@ -245,15 +245,15 @@ category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "flatmapknowledge-1.6.1-py3-none-any.whl", hash = "sha256:4dd04f46bfb6b7ee88aab58c5d476e048c6e0ba85b51caffd56957105a5fbd61"},
+    {file = "flatmapknowledge-1.6.1-py3-none-any.whl", hash = "sha256:681296b0e9dde33263e87d329a838c08e8b1f68403b3d9068ad29de8683ac742"},
 ]
 
 [package.dependencies]
-mapknowledge = {url = "https://github.com/AnatomicMaps/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"}
+mapknowledge = {url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"}
 
 [package.source]
 type = "url"
-url = "https://github.com/AnatomicMaps/flatmap-knowledge/releases/download/v1.6.1/flatmapknowledge-1.6.1-py3-none-any.whl"
+url = "https://github.com/napakalas/flatmap-knowledge/releases/download/v0.16.1/flatmapknowledge-1.6.1-py3-none-any.whl"
 
 [[package]]
 name = "gitdb"
@@ -470,7 +470,7 @@ category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mapknowledge-0.16.1-py3-none-any.whl", hash = "sha256:f694103be0ad24abc9d8e4343cac169a3e4a5ae239d2a79166caf91c6b26eafa"},
+    {file = "mapknowledge-0.16.1-py3-none-any.whl", hash = "sha256:2821aae4a9662cd914c35045bb61b60f5a00dfc71a9cb2616f0f915f409db79e"},
 ]
 
 [package.dependencies]
@@ -481,7 +481,7 @@ sparqlwrapper = ">=2.0.0,<3.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/AnatomicMaps/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"
+url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"
 
 [[package]]
 name = "markupsafe"
@@ -1806,4 +1806,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<4.0"
-content-hash = "1b13d118099a3af97c2d684ee58ab60f1962236d8814e6fdf8bba6d9a51dddab"
+content-hash = "fdcb867679df98c663e1841d4a21e552c88a5eb84b0a682348ba4471cc7393d8"

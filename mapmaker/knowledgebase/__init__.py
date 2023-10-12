@@ -56,7 +56,7 @@ class AnatomicalNode(tuple):
 #===============================================================================
 
 def connectivity_models():
-    return settings['KNOWLEDGE_STORE'].connectivity_models()
+    return settings['KNOWLEDGE_STORE'].connectivity_models(source='NPO')
 
 def get_label(entity: str) -> str:
     return get_knowledge(entity).get('label', entity)
@@ -66,7 +66,7 @@ def get_knowledge(entity: str) -> dict[str, Any]:
 
 def sckan_build() -> Optional[dict]:
     if (scicrunch := settings['KNOWLEDGE_STORE'].scicrunch) is not None:
-        return scicrunch.sckan_build()
+        return scicrunch.build()
 
 #===============================================================================
 
