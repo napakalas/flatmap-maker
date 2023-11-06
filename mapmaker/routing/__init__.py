@@ -825,6 +825,7 @@ class Network(object):
         for node, node_dict in connectivity_graph.nodes(data=True):
             node_type = node_dict['type']
             if node_type == 'segment':
+                print('--segment', node)
                 path_nerve_ids.update(node_dict['nerve-ids'])
                 segment_graph = node_dict['subgraph']
                 if segment_graph.number_of_edges() > 1:
@@ -917,8 +918,10 @@ class Network(object):
                     feature_ids.update(f.id for f in node_dict['features'])
                     used_nodes.add(node)
             if len(feature_ids):
+                # print('  dari 2', used_nodes)
                 get_centreline_from_containing_features(start_dict, connectivity_graph.nodes[ends[1]], feature_ids, used_nodes)
-
+        # print('+==', connectivity_graph)
+        # print('+==', route_graph.nodes)
         # Now see if unconnected centreline end nodes in the route graph are in fact connected
         # by a centreline
         new_edge_dicts = {}
@@ -948,10 +951,8 @@ class Network(object):
                             if feature.id in route_graph:
                                 node_dict['used'] = {feature.id}
                                 break
-
                     if len(node_dict['used']) == 0:
                         terminal_graph = nx.Graph()
-
                         def add_paths_to_neighbours(node, node_dict):
                             visited.add(node)
                             # Find the actual nodes we want to connect to, skipping
@@ -1066,6 +1067,8 @@ class Network(object):
                     route_graph.nodes[node_0].update(set_properties_from_feature_id(node_0))
                 if node_1 != upstream_node:
                     route_graph.nodes[node_1].update(set_properties_from_feature_id(node_1))
+        # print('+--+', terminal_graphs.values())
+        # print('++++', route_graph.edges)
 
         # Identify features on the path with a nerve cuff used by the path
         # and make hidden nodes that are actually used in the route visible
@@ -1093,6 +1096,11 @@ class Network(object):
             for n_0, n_1, ed in route_graph.edges(data=True):
                 log.info(f'{path.id}: Edge {n_0} -> {n_1}: {ed.get("centreline")}')
 
+        print(' -- = ', self.__centreline_nodes.keys())
+        # print(' -- = ', self.__centreline_nodes['lumbar_splanchnic_n'])
+        print(' ++ = ', self.__centreline_nodes['L1_ventral_root_ramus'])
+        print(' !! = ', self.__containers_by_centreline['L1_ventral_root_ramus'])
+
         if debug:
             return (route_graph, G, connectivity_graph, terminal_graphs)    # type: ignore
         else:
@@ -1108,14 +1116,45 @@ class Network(object):
                 log.warning(f' - - generalised_nodes: {generalised}')
 
                 edges = []
+                def get_model(node):
+                    if (model:=route_graph.nodes(data=True)[node].get('models')) is not None:
+                        return (model, (),)
+                    elif 'edge-direction' in route_graph.nodes(data=True)[node]:
+                        for n in route_graph.nodes(data=True)[node]['edge-direction']:
+                            if n in route_graph.nodes(data=True):
+                                if (model:=route_graph.nodes(data=True)[n].get('models')) is not None:
+                                    model = (model, (),)
+                                    log.warning(f' $ $ {node, n, model, route_graph.nodes(data=True)[n]}')
+                                    if model in connectivity_graph.nodes:
+                                        return model
+
+                def get_model_from_centerline(node1, node2):
+                    for node, data in connectivity_graph.nodes(data=True):
+                        if node1 in data['used'] and node2 in data['used']:
+                            print('.[{}]', node1, node2, data)
+                            return node
+
+                def get_edge(node1, node2, type):
+                    model1, model2 = get_model(node1), get_model(node2)
+                    if model1 is None:
+                        model1 = get_model_from_centerline(node1, node2)
+                    if model2 is None:
+                        model2 = get_model_from_centerline(node1, node2)
+                    return model1, model2
+
+                available_edges = []
                 for node1, node2, type in route_graph.edges(data=True):
-                    if 'models' in route_graph.nodes(data=True)[node1] and 'models' in route_graph.nodes(data=True)[node2]:
-                        edges += [(
-                            (route_graph.nodes(data=True)[node1]['models'], (),),
-                            (route_graph.nodes(data=True)[node2]['models'], (),)
-                        )]
+                    model1, model2 = get_edge(node1, node2, type)
+                    if model1 is not None and model2 is not None:
+                        edges += [(model1, model2)]
+                    available_edges += [(model1, model2, node1, node2)]
+
+                for node, node_dict in connectivity_graph.nodes(data=True):
+                    print('  %%', node, node_dict.get('type'))
+
                 log.warning(f' - - original_edges: {connectivity_graph.edges}')
                 log.warning(f' - - rendered_edges: {edges}')
+                log.warning(f' - - available_edges: {available_edges}')
                 log.warning(f' - - missing_edges: {connectivity_graph.edges-set(edges)}')
             elif len(connectivity_graph.edges) > 0:
                 log.warning(f' * * {path.id}: complete')
