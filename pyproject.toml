@@ -40,7 +40,7 @@ types-requests = "^2.28.11.2"
 colormath = "^3.0.0"
 pandas = "^1.5.3"
 svgelements = "^1.9.1"
-flatmapknowledge = {url = "https://github.com/napakalas/flatmap-knowledge/releases/download/v0.16.1/flatmapknowledge-1.6.1-py3-none-any.whl"}
+flatmapknowledge = {url = "https://github.com/napakalas/flatmap-knowledge/releases/download/v0.16.3/flatmapknowledge-1.6.3-py3-none-any.whl"}
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.982"

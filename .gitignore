@@ -9,3 +9,7 @@ mapmaker.egg-info/
 maps/
 *.pyc
 *.pbf
+
+alignment/output/*
+!alignment/output/.gitkeep
+~$*

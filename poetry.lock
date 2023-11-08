@@ -239,21 +239,21 @@ files = [
 
 [[package]]
 name = "flatmapknowledge"
-version = "1.6.1"
+version = "1.6.3"
 description = ""
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "flatmapknowledge-1.6.1-py3-none-any.whl", hash = "sha256:681296b0e9dde33263e87d329a838c08e8b1f68403b3d9068ad29de8683ac742"},
+    {file = "flatmapknowledge-1.6.3-py3-none-any.whl", hash = "sha256:0563fc922262728c7645e5b4524ada5908898b0b7dccbc9454527abe67f2b28b"},
 ]
 
 [package.dependencies]
-mapknowledge = {url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"}
+mapknowledge = {url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.3/mapknowledge-0.16.3-py3-none-any.whl"}
 
 [package.source]
 type = "url"
-url = "https://github.com/napakalas/flatmap-knowledge/releases/download/v0.16.1/flatmapknowledge-1.6.1-py3-none-any.whl"
+url = "https://github.com/napakalas/flatmap-knowledge/releases/download/v0.16.3/flatmapknowledge-1.6.3-py3-none-any.whl"
 
 [[package]]
 name = "gitdb"
@@ -464,13 +464,13 @@ source = ["Cython (>=0.29.35)"]
 
 [[package]]
 name = "mapknowledge"
-version = "0.16.1"
+version = "0.16.3"
 description = ""
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mapknowledge-0.16.1-py3-none-any.whl", hash = "sha256:2821aae4a9662cd914c35045bb61b60f5a00dfc71a9cb2616f0f915f409db79e"},
+    {file = "mapknowledge-0.16.3-py3-none-any.whl", hash = "sha256:94e401e28dcd93b11aa6132436ca49dc2ac7c525cb3472f97c28bab407496175"},
 ]
 
 [package.dependencies]
@@ -481,7 +481,7 @@ sparqlwrapper = ">=2.0.0,<3.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.1/mapknowledge-0.16.1-py3-none-any.whl"
+url = "https://github.com/napakalas/map-knowledge/releases/download/v0.16.3/mapknowledge-0.16.3-py3-none-any.whl"
 
 [[package]]
 name = "markupsafe"
@@ -1806,4 +1806,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<4.0"
-content-hash = "fdcb867679df98c663e1841d4a21e552c88a5eb84b0a682348ba4471cc7393d8"
+content-hash = "54c0f4e37a4d72767e5ff84145529f498deef7d9ca42c5d7582adcb3a32dbcf6"

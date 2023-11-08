@@ -1096,11 +1096,6 @@ class Network(object):
             for n_0, n_1, ed in route_graph.edges(data=True):
                 log.info(f'{path.id}: Edge {n_0} -> {n_1}: {ed.get("centreline")}')
 
-        print(' -- = ', self.__centreline_nodes.keys())
-        # print(' -- = ', self.__centreline_nodes['lumbar_splanchnic_n'])
-        print(' ++ = ', self.__centreline_nodes['L1_ventral_root_ramus'])
-        print(' !! = ', self.__containers_by_centreline['L1_ventral_root_ramus'])
-
         if debug:
             return (route_graph, G, connectivity_graph, terminal_graphs)    # type: ignore
         else:
