@@ -63,6 +63,13 @@ class PropertiesStore(object):
             connectivity = FilePath(connectivity_source).get_json()
             self.__pathways.add_connectivity(connectivity)
 
+        # Node aliases defined in JSON
+        if manifest.node_aliases is None:
+            node_aliases_dict = {}
+        else:
+            node_aliases_dict = FilePath(manifest.node_aliases).get_json()
+        print(node_aliases_dict)
+
         # Connectivity from SciCrunch
         connectivity_models = knowledgebase.connectivity_models()
         manifest_neuron_connectivity = connectivity_models.keys() if 'NPO' in manifest.neuron_connectivity else manifest.neuron_connectivity

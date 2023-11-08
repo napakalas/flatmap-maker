@@ -825,7 +825,7 @@ class Network(object):
         for node, node_dict in connectivity_graph.nodes(data=True):
             node_type = node_dict['type']
             if node_type == 'segment':
-                print('--segment', node)
+                # print('--segment', node)
                 path_nerve_ids.update(node_dict['nerve-ids'])
                 segment_graph = node_dict['subgraph']
                 if segment_graph.number_of_edges() > 1:
@@ -1096,68 +1096,112 @@ class Network(object):
             for n_0, n_1, ed in route_graph.edges(data=True):
                 log.info(f'{path.id}: Edge {n_0} -> {n_1}: {ed.get("centreline")}')
 
-        print(' -- = ', self.__centreline_nodes.keys())
-        # print(' -- = ', self.__centreline_nodes['lumbar_splanchnic_n'])
-        print(' ++ = ', self.__centreline_nodes['L1_ventral_root_ramus'])
-        print(' !! = ', self.__containers_by_centreline['L1_ventral_root_ramus'])
+        # print(' -- = ', self.__centreline_nodes.keys())
+        # print(' ++ = ', self.__centreline_nodes['vagus_n-4'])
+        # print(' !! = ', self.__segment_edge_by_segment)
+        # print(' -- = ', self.__segment_ids_by_centreline.keys())
+        # print(' && ', self.__centreline_graph.edges)
+
 
         if debug:
             return (route_graph, G, connectivity_graph, terminal_graphs)    # type: ignore
         else:
-            # need to log incomplete neuron connectivities
-            if len(connectivity_graph.edges) > len(route_graph.edges):
-                log.warning(f' * * {path.id}: {"missing" if len(route_graph.edges) == 0 else "partial"}')
-                log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
-                log.warning(f' - - missing_nodes: {connectivity_graph.nodes & self.__missing_identifiers}')
-                generalised = {}
-                for node_id, node in connectivity_graph.nodes(data=True):
-                    if len(node['node'][1]) + 1 > len(node['name'].split('/')):
-                        generalised[node_id] = node['name']
-                log.warning(f' - - generalised_nodes: {generalised}')
 
-                edges = []
-                def get_model(node):
-                    if (model:=route_graph.nodes(data=True)[node].get('models')) is not None:
-                        return (model, (),)
-                    elif 'edge-direction' in route_graph.nodes(data=True)[node]:
-                        for n in route_graph.nodes(data=True)[node]['edge-direction']:
-                            if n in route_graph.nodes(data=True):
-                                if (model:=route_graph.nodes(data=True)[n].get('models')) is not None:
-                                    model = (model, (),)
-                                    log.warning(f' $ $ {node, n, model, route_graph.nodes(data=True)[n]}')
-                                    if model in connectivity_graph.nodes:
-                                        return model
+            def get_model(node):
+                if (model:=route_graph.nodes(data=True)[node].get('models')) is not None:
+                    return (model, (),)
+                elif 'edge-direction' in route_graph.nodes(data=True)[node]:
+                    for n in route_graph.nodes(data=True)[node]['edge-direction']:
+                        if n in route_graph.nodes(data=True):
+                            if (model:=route_graph.nodes(data=True)[n].get('models')) is not None:
+                                model = (model, (),)
+                                log.warning(f' $ $ {node, n, model, route_graph.nodes(data=True)[n]}')
+                                if model in connectivity_graph.nodes:
+                                    return model
 
-                def get_model_from_centerline(node1, node2):
-                    for node, data in connectivity_graph.nodes(data=True):
-                        if node1 in data['used'] and node2 in data['used']:
-                            print('.[{}]', node1, node2, data)
-                            return node
+            def get_edge(node1, node2, type):
+                model1, model2 = get_model(node1), get_model(node2)
+                if model1 is None or model2 is None:
+                    if 'segment' in type or 'centreline' in type:
+                        feature = type.get('centreline') if type.get('centreline') is not None else type.get('segment')
+                        model = None
+                        if self.__flatmap.has_feature(feature):
+                            model = self.__flatmap.get_feature(feature).models
+                        if model1 is not None:
+                            model2 = (model, ())
+                        elif model2 is not None:
+                            model1 = (model, ())
+                        else:
+                            model1, model2 = (model, ()), (model, ())
+                model1 = (model1, ()) if not isinstance(model1, tuple) else model1
+                model2 = (model2, ()) if not isinstance(model2, tuple) else model2
+                return model1, model2
 
-                def get_edge(node1, node2, type):
-                    model1, model2 = get_model(node1), get_model(node2)
-                    if model1 is None:
-                        model1 = get_model_from_centerline(node1, node2)
-                    if model2 is None:
-                        model2 = get_model_from_centerline(node1, node2)
-                    return model1, model2
-
-                available_edges = []
-                for node1, node2, type in route_graph.edges(data=True):
-                    model1, model2 = get_edge(node1, node2, type)
-                    if model1 is not None and model2 is not None:
+            # get rendered edges and nodes
+            edges = []
+            nodes = []
+            for node1, node2, type in route_graph.edges(data=True):
+                print('++', node1, node2, type)
+                model1, model2 = get_edge(node1, node2, type)
+                print('++', model1, model2)
+                if model1 is not None and model2 is not None:
+                    if model1 != model2:
                         edges += [(model1, model2)]
-                    available_edges += [(model1, model2, node1, node2)]
+                    nodes += [model1, model2]
+            edges = list(set(edges))
+            nodes = list(set(nodes))
+            print('^^', edges)
 
-                for node, node_dict in connectivity_graph.nodes(data=True):
-                    print('  %%', node, node_dict.get('type'))
+            # find generalised and specialised nodes:
+            cg_nodes = set(connectivity_graph.nodes) - set(nodes)
+            rg_nodes = set(nodes) - set(connectivity_graph.nodes)
+            generalised = {}
+            specialised = {}
+            for cg in cg_nodes:
+                for rg in rg_nodes:
+                    # generalised
+                    if rg[0] in cg[1]:
+                        generalised[cg] = rg
+                        continue
+                    #  specialised
+                    if rg[0] == cg[0]:
+                        specialised[cg] = rg
 
-                log.warning(f' - - original_edges: {connectivity_graph.edges}')
-                log.warning(f' - - rendered_edges: {edges}')
-                log.warning(f' - - available_edges: {available_edges}')
-                log.warning(f' - - missing_edges: {connectivity_graph.edges-set(edges)}')
-            elif len(connectivity_graph.edges) > 0:
+            # get edges nodes that modified by generalised anf specialised nodes
+            modified_edges = []
+            modified_nodes = []
+            if len(gen_spec_nodes:={**generalised, **specialised}) > 0:
+                for edge in connectivity_graph.edges:
+                    n_edge = (gen_spec_nodes[edge[0]] if edge[0] in gen_spec_nodes else edge[0],
+                              gen_spec_nodes[edge[1]] if edge[1] in gen_spec_nodes else edge[1])
+                    modified_edges += [n_edge]
+                for node in connectivity_graph.nodes:
+                    modified_nodes += [gen_spec_nodes[node] if node in gen_spec_nodes else node]
+            else:
+                modified_edges = connectivity_graph.edges
+                modified_nodes = connectivity_graph.nodes
+            modified_edges = list(set(modified_edges))
+
+            # get missing edges
+            missing_edges = []
+            for edge in set(modified_edges)-set(edges):
+                if (edge[1], edge[0]) not in edges:
+                    missing_edges += [edge]
+
+            if len(set(modified_edges)-set(edges)) > 0:
+                log.warning(f' * * {path.id}: {"missing" if len(edges) == 0 else "partial"}')
+            else:
                 log.warning(f' * * {path.id}: complete')
+            log.warning(f' - - generalised_nodes: {generalised}')
+            log.warning(f' - - specialised_nodes: {specialised}')
+            log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
+            log.warning(f' - - modified_nodes: {modified_nodes}')
+            log.warning(f' - - rendered_nodes: {nodes}')
+            log.warning(f' - - missing_nodes: {set(modified_nodes)-set(nodes)}')
+            log.warning(f' - - original_edges: {connectivity_graph.edges}')
+            log.warning(f' - - modified_edged: {modified_edges}')
+            log.warning(f' - - rendered_edges: {edges}')
+            log.warning(f' - - missing_edges: {missing_edges}')
 
             return route_graph
 

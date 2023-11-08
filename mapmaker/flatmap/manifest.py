@@ -193,6 +193,8 @@ class Manifest:
                 self.__manifest['connectivityTerms'] = self.__check_and_normalise_path(self.__manifest['connectivityTerms'], 'Flatmap connectivity terms')
             if 'properties' in self.__manifest:
                 self.__manifest['properties'] = self.__check_and_normalise_path(self.__manifest['properties'], 'Flatmap properties')
+            if 'nodeAliases' in self.__manifest:
+                self.__manifest['nodeAliases'] = self.__check_and_normalise_path(self.__manifest['nodeAliases'], 'Flatmap aliases')
             for path in self.__manifest.get('connectivity', []):
                 self.__connectivity.append(self.__check_and_normalise_path(path, 'Flatmap connectivity'))
             if not ignore_git and self.__uncommitted:
@@ -225,6 +227,10 @@ class Manifest:
     @property
     def description(self):
         return self.__manifest.get('description')
+
+    @property
+    def node_aliases(self):
+        return self.__manifest.get('nodeAliases')
 
     @property
     def file_set(self) -> list[ManifestFile]:
