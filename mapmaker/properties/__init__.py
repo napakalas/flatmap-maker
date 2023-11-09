@@ -68,7 +68,7 @@ class PropertiesStore(object):
             node_aliases_dict = {}
         else:
             node_aliases_dict = FilePath(manifest.node_aliases).get_json()
-        print(node_aliases_dict)
+        self.__node_aliases = node_aliases_dict
 
         # Connectivity from SciCrunch
         connectivity_models = knowledgebase.connectivity_models()
@@ -112,6 +112,10 @@ class PropertiesStore(object):
     @property
     def pathways(self):
         return self.__pathways
+    
+    @property
+    def node_aliases(self):
+        return self.__node_aliases
 
     def network_feature(self, feature):
     #==================================
