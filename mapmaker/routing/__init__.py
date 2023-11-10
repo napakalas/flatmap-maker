@@ -825,7 +825,6 @@ class Network(object):
         for node, node_dict in connectivity_graph.nodes(data=True):
             node_type = node_dict['type']
             if node_type == 'segment':
-                print('--segment', node)
                 path_nerve_ids.update(node_dict['nerve-ids'])
                 segment_graph = node_dict['subgraph']
                 if segment_graph.number_of_edges() > 1:
@@ -918,10 +917,8 @@ class Network(object):
                     feature_ids.update(f.id for f in node_dict['features'])
                     used_nodes.add(node)
             if len(feature_ids):
-                # print('  dari 2', used_nodes)
                 get_centreline_from_containing_features(start_dict, connectivity_graph.nodes[ends[1]], feature_ids, used_nodes)
-        # print('+==', connectivity_graph)
-        # print('+==', route_graph.nodes)
+
         # Now see if unconnected centreline end nodes in the route graph are in fact connected
         # by a centreline
         new_edge_dicts = {}
@@ -1067,8 +1064,6 @@ class Network(object):
                     route_graph.nodes[node_0].update(set_properties_from_feature_id(node_0))
                 if node_1 != upstream_node:
                     route_graph.nodes[node_1].update(set_properties_from_feature_id(node_1))
-        # print('+--+', terminal_graphs.values())
-        # print('++++', route_graph.edges)
 
         # Identify features on the path with a nerve cuff used by the path
         # and make hidden nodes that are actually used in the route visible
@@ -1129,68 +1124,72 @@ class Network(object):
                 model2 = (model2, ()) if not isinstance(model2, tuple) else model2
                 return model1, model2
 
-            # get rendered edges and nodes
-            edges = []
-            nodes = []
-            for node1, node2, type in route_graph.edges(data=True):
-                model1, model2 = get_edge(node1, node2, type)
-                if model1 is not None and model2 is not None:
-                    if model1 != model2:
-                        edges += [(model1, model2)]
-                    nodes += [model1, model2]
-            edges = list(set(edges))
-            nodes = list(set(nodes))
-
-            # find generalised and specialised nodes:
-            cg_nodes = set(connectivity_graph.nodes) - set(nodes)
-            rg_nodes = set(nodes) - set(connectivity_graph.nodes)
-            generalised = {}
-            specialised = {}
-            for cg in cg_nodes:
-                for rg in rg_nodes:
-                    # generalised
-                    if rg[0] in cg[1]:
-                        generalised[cg] = rg
-                        continue
-                    #  specialised
-                    if rg[0] == cg[0]:
-                        specialised[cg] = rg
-
-            # get edges nodes that modified by generalised anf specialised nodes
-            modified_edges = []
-            modified_nodes = []
-            if len(gen_spec_nodes:={**generalised, **specialised}) > 0:
-                for edge in connectivity_graph.edges:
-                    n_edge = (gen_spec_nodes[edge[0]] if edge[0] in gen_spec_nodes else edge[0],
-                              gen_spec_nodes[edge[1]] if edge[1] in gen_spec_nodes else edge[1])
-                    modified_edges += [n_edge]
-                for node in connectivity_graph.nodes:
-                    modified_nodes += [gen_spec_nodes[node] if node in gen_spec_nodes else node]
-            else:
-                modified_edges = connectivity_graph.edges
-                modified_nodes = connectivity_graph.nodes
-            modified_edges = list(set(modified_edges))
-
-            # get missing edges
-            missing_edges = []
-            for edge in set(modified_edges)-set(edges):
-                if (edge[1], edge[0]) not in edges:
-                    missing_edges += [edge]
-
-            if len(set(modified_edges)-set(edges)) > 0:
-                log.warning(f' * * {path.id}: {"missing" if len(edges) == 0 else "partial"}')
-            else:
+            if nx.is_isomorphic(connectivity_graph, route_graph):
                 log.warning(f' * * {path.id}: complete')
-            log.warning(f' - - generalised_nodes: {generalised}')
-            log.warning(f' - - specialised_nodes: {specialised}')
-            log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
-            log.warning(f' - - modified_nodes: {modified_nodes}')
-            log.warning(f' - - rendered_nodes: {nodes}')
-            log.warning(f' - - missing_nodes: {set(modified_nodes)-set(nodes)}')
-            log.warning(f' - - original_edges: {connectivity_graph.edges}')
-            log.warning(f' - - modified_edged: {modified_edges}')
-            log.warning(f' - - rendered_edges: {edges}')
-            log.warning(f' - - missing_edges: {missing_edges}')
+            else:
+                # check for missing segments
+                missing_segments = [node_id for node_id, node in connectivity_graph.nodes.items() if node.get('type') == 'no-segment']
+
+                # get rendered edges and nodes
+                rendered_edges = []
+                rendered_nodes = []
+                for node1, node2, type in route_graph.edges(data=True):
+                    model1, model2 = get_edge(node1, node2, type)
+                    if model1 is not None and model2 is not None:
+                        if model1 != model2:
+                            rendered_edges += [(model1, model2)]
+                        rendered_nodes += [model1, model2]
+                rendered_edges = list(set(rendered_edges))
+                rendered_nodes = list(set(rendered_nodes))
+
+                # find generalised and specialised nodes:
+                cg_nodes = set(connectivity_graph.nodes) - set(rendered_nodes)
+                rg_nodes = set(rendered_nodes) - set(connectivity_graph.nodes)
+                generalised = {}
+                specialised = {}
+                for cg in cg_nodes:
+                    for rg in rg_nodes:
+                        # generalised
+                        if rg[0] in cg[1]:
+                            generalised[cg] = rg
+                            continue
+                        #  specialised
+                        if rg[0] == cg[0]:
+                            specialised[cg] = rg
+
+                # get edges & nodes that modified by generalised anf specialised nodes
+                modified_edges = []
+                modified_nodes = []
+                if len(gen_spec_nodes:={**generalised, **specialised}) > 0:
+                    for edge in connectivity_graph.edges:
+                        n_edge = (gen_spec_nodes[edge[0]] if edge[0] in gen_spec_nodes else edge[0],
+                                gen_spec_nodes[edge[1]] if edge[1] in gen_spec_nodes else edge[1])
+                        modified_edges += [n_edge]
+                    for node in connectivity_graph.nodes:
+                        modified_nodes += [gen_spec_nodes[node] if node in gen_spec_nodes else node]
+                else:
+                    modified_edges = connectivity_graph.edges
+                    modified_nodes = connectivity_graph.nodes
+                modified_edges = list(set(modified_edges))
+
+                # get missing edges
+                missing_edges = []
+                for edge in set(modified_edges)-set(rendered_edges):
+                    if (edge[1], edge[0]) not in rendered_edges:
+                        missing_edges += [edge]
+
+                log.warning(f' * * {path.id}: {"missing" if len(rendered_edges) == 0 else "partial"}')
+                log.warning(f' - - generalised_nodes: {generalised}')
+                log.warning(f' - - specialised_nodes: {specialised}')
+                log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
+                log.warning(f' - - modified_nodes: {modified_nodes}')
+                log.warning(f' - - rendered_nodes: {rendered_nodes}')
+                log.warning(f' - - missing_nodes: {set(connectivity_graph.nodes)&self.__missing_identifiers}')
+                log.warning(f' - - original_edges: {connectivity_graph.edges}')
+                log.warning(f' - - modified_edged: {modified_edges}')
+                log.warning(f' - - rendered_edges: {rendered_edges}')
+                log.warning(f' - - missing_edges: {missing_edges}')
+                log.warning(f' - - missing_segments: {missing_segments}')
 
             return route_graph
 

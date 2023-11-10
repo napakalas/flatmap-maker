@@ -1,293 +1,270 @@
 Node,Node Name,Appear in
-"('UBERON:0001894', ())",diencephalon,ApiNATOMY
-"('UBERON:0006460', ())",first sacral spinal cord segment,ApiNATOMY
-"('UBERON:0002857', ())",first lumbar dorsal root ganglion,ApiNATOMY
-"('UBERON:0002856', ())",second lumbar dorsal root ganglion,ApiNATOMY
-"('UBERON:0001893', ())",telencephalon,ApiNATOMY
-"('UBERON:0000988', ())",pons,ApiNATOMY
-"('ILX:0777088', ())",L1 - L2 interganglionic segment,ApiNATOMY
-"('ILX:0777090', ())",L3 - L4 interganglionic segment,ApiNATOMY
-"('ILX:0777089', ())",L2 - L3 interganglionic segment,ApiNATOMY
-"('UBERON:0002384', ('UBERON:0001258',))",connective tissue IN neck of urinary bladder,ApiNATOMY
-"('ILX:0777091', ())",L4 - L5 interganglionic segment,ApiNATOMY
-"('ILX:0777092', ())",L5 - L6 interganglionic segment,ApiNATOMY
-"('ILX:0777087', ())",T13 - L1 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0777086', ())",T12 - T13 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0777093', ())",L6 - S1 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('UBERON:0002384', ('UBERON:0006082',))",connective tissue IN fundus of urinary bladder,ApiNATOMY
-"('ILX:0793615', ())",ventral root of the sixth lumbar spinal cord segment,ApiNATOMY
-"('ILX:0792853', ())",ventral root of the first sacral spinal cord segment,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793664',))",wall of blood vessel IN Arteriole in connective tissue of bladder dome,ApiNATOMY
-"('ILX:0785733', ())",gray communicating ramus of second lumbar nerve,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793663',))",wall of blood vessel IN Arteriole in connective tissue of bladder neck,ApiNATOMY
-"('ILX:0793360', ())",sixth lumbar dorsal root ganglion,ApiNATOMY
-"('ILX:0793207', ())",ventral root of the thirteenth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0787082', ())",gray communicating ramus of the first thoracic nerve,ApiNATOMY
-"('ILX:0793214', ())",white communicating ramus of eighth thoracic spinal nerve,ApiNATOMY
-"('ILX:0793215', ())",white communicating ramus of ninth thoracic spinal nerve,ApiNATOMY
-"('ILX:0789966', ())",ventral root of the seventh thoracic spinal cord segment,ApiNATOMY
-"('ILX:0792409', ())",gray communicating ramus of tenth thoracic nerve,ApiNATOMY
-"('UBERON:0006455', ())",seventh thoracic spinal cord segment,ApiNATOMY
-"('ILX:0774266', ())",T1 sympathetic ganglion,ApiNATOMY
-"('UBERON:0003715', ())",splanchnic nerve,ApiNATOMY
-"('ILX:0793216', ())",white communicating ramus of tenth thoracic spinal nerve,ApiNATOMY
-"('ILX:0785067', ())",gray communicating ramus of eleventh thoracic nerve,ApiNATOMY
-"('ILX:0793213', ())",white communicating ramus of seventh thoracic spinal nerve,ApiNATOMY
-"('ILX:0785825', ())",gray communicating ramus of first lumbar nerve,ApiNATOMY
-"('ILX:0788026', ())",ventral root of the eighth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0793217', ())",white communicating ramus of eleventh thoracic spinal nerve,ApiNATOMY
-"('ILX:0785421', ())",ventral root of the first lumbar spinal cord segment,ApiNATOMY
-"('UBERON:0002860', ())",first sacral dorsal root ganglion,ApiNATOMY
-"('ILX:0738432', ())",Sixth lumbar spinal cord segment,ApiNATOMY
-"('ILX:0786933', ())",Second lumbar ganglion,ApiNATOMY
-"('ILX:0788675', ())",ventral root of the second lumbar spinal cord segment,ApiNATOMY
-"('ILX:0793221', ())",white communicating ramus of second lumbar spinal nerve,ApiNATOMY
-"('ILX:0793642', ())",Arteriole in lamina propria of mucosa of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793645',))",wall of blood vessel IN Arteriole in serosa of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793646',))",wall of blood vessel IN Arteriole in submucous nerve plexus of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793642',))",wall of blood vessel IN Arteriole in lamina propria of mucosa of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793644',))",wall of blood vessel IN Arteriole in myenteric nerve plexus of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793641',))",wall of blood vessel IN Arteriole in circular muscle layer of descending colon,ApiNATOMY
-"('UBERON:0035965', ('ILX:0793643',))",wall of blood vessel IN Arteriole in longitudinal muscle layer of descending colon,ApiNATOMY
-"('ILX:0793659', ('UBERON:0001158',))",Submucosal nerve plexus of descending colon IN descending colon,ApiNATOMY
-"('ILX:0793657', ('UBERON:0001158',))",Myenteric nerve plexus of descending colon IN descending colon,ApiNATOMY
-"('ILX:0773760', ('UBERON:0001158',))",Circular muscle layer of descending colon IN descending colon,ApiNATOMY
-"('ILX:0771089', ('UBERON:0001158',))",Serosa of descending colon IN descending colon,ApiNATOMY
-"('ILX:0776070', ('UBERON:0001158',))",Longitudinal muscle layer of descending colon IN descending colon,ApiNATOMY
-"('ILX:0770759', ('UBERON:0001158',))",Lamina propria mucosae of descending colon IN descending colon,ApiNATOMY
-"('UBERON:0010398', ('UBERON:0002106',))",spleen marginal sinus IN spleen,ApiNATOMY
-"('ILX:0793563', ())",splenic nerve,ApiNATOMY
-"('ILX:0793680', ('UBERON:0002106',))",Perimarginal cavernous sinus IN spleen,ApiNATOMY
-"('UBERON:0004641', ('UBERON:0002106',))",spleen capsule IN spleen,ApiNATOMY
-"('ILX:0793359', ())",thirteenth thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0003535', ())",vagus X nerve trunk,ApiNATOMY
-"('UBERON:0005769', ('UBERON:0001263',))",basement membrane of epithelium IN pancreatic acinus,ApiNATOMY
-"('ILX:0793613', ('UBERON:0001263',))",Epithelium of pancreatic acinus IN pancreatic acinus,ApiNATOMY
-"('UBERON:0006447', ())",fifth lumbar spinal cord segment,ApiNATOMY
-"('ILX:0791148', ())",ventral root of the fifth lumbar spinal cord segment,ApiNATOMY
-"('ILX:0793660', ('UBERON:0013473',))",myenteric nerve plexus of lower esophagus IN lower esophagus,ApiNATOMY
-"('UBERON:0001975', ('UBERON:0013473',))",serosa of esophagus IN lower esophagus,ApiNATOMY
-"('UBERON:0013473', ())",lower esophagus,ApiNATOMY
-"('UBERON:0009961', ('UBERON:0013473',))",esophagus smooth muscle longitudinal layer IN lower esophagus,ApiNATOMY
-"('UBERON:0005479', ())",superior mesenteric ganglion,ApiNATOMY
-"('UBERON:0005734', ('UBERON:0001182',))",tunica adventitia of blood vessel IN superior mesenteric artery,ApiNATOMY
-"('ILX:0784569', ())",Tenth thoracic ganglion,ApiNATOMY
-"('UBERON:0005734', ('UBERON:0001193',))",tunica adventitia of blood vessel IN hepatic artery,ApiNATOMY
-"('UBERON:0001250', ('UBERON:0002106',))",red pulp of spleen IN spleen,ApiNATOMY
-"('ILX:0793674', ())",nerve plexus in adventitia of inferior pancreaticoduodenal artery,ApiNATOMY
-"('UBERON:0002384', ('UBERON:0001263',))",connective tissue IN pancreatic acinus,ApiNATOMY
-"('UBERON:0005734', ('UBERON:0001194',))",tunica adventitia of blood vessel IN splenic artery,ApiNATOMY
-"('ILX:0793676', ())",nerve plexus in adventitia of hepatic artery,ApiNATOMY
-"('UBERON:0005734', ('UBERON:0001195',))",tunica adventitia of blood vessel IN inferior pancreaticoduodenal artery,ApiNATOMY
-"('UBERON:0000006', ())",islet of Langerhans,ApiNATOMY
-"('UBERON:0005734', ('UBERON:0006637',))",tunica adventitia of blood vessel IN celiac trunk,ApiNATOMY
-"('ILX:0793673', ())",Nerve plexus in adventitia of splenic artery,ApiNATOMY
-"('ILX:0784378', ())",Ninth thoracic ganglion,ApiNATOMY
-"('ILX:0793178', ())",intrapancreatic ganglia,ApiNATOMY
-"('ILX:0739298', ())",gray communicating ramus of twelfth thoracic nerve,ApiNATOMY
-"('UBERON:0006454', ())",sixth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0789894', ())",ventral root of the second thoracic spinal cord segment,ApiNATOMY
-"('ILX:0793233', ())",Interganglionic branch of inferior cervical ganglion to first thoracic ganglion,ApiNATOMY
-"('ILX:0777094', ())",T1 - T2 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0790146', ())",ventral root of the fifth thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0006459', ())",third thoracic spinal cord segment,ApiNATOMY
-"('ILX:0791062', ())",ventral root of the sixth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0785971', ())",ventral root of the fifth sacral spinal cord segment,ApiNATOMY
-"('ILX:0793363', ())",Interganglionic branch of inferior cervical ganglion to vertebral ganglion,ApiNATOMY
-"('UBERON:0006453', ())",fifth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0777096', ())",T3 - T4 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0784804', ())",ventral root of the third thoracic spinal cord segment,ApiNATOMY
-"('ILX:0777098', ())",T5 - T6 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0792838', ())",ventral root of the fourth thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0006457', ())",first thoracic spinal cord segment,ApiNATOMY
-"('ILX:0777095', ())",T2 - T3 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0793234', ())",Interganglionic branch of inferior cervical ganglion to middle cervical ganglion,ApiNATOMY
-"('UBERON:0006452', ())",fourth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0791105', ())",gray communicating ramus of the second thoracic nerve,ApiNATOMY
-"('UBERON:0001989', ())",superior cervical ganglion,ApiNATOMY
-"('UBERON:0006458', ())",second thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0001869', ())",cerebral hemisphere,ApiNATOMY
-"('UBERON:0001891', ())",midbrain,ApiNATOMY
-"('UBERON:0002440', ())",inferior cervical ganglion,ApiNATOMY
-"('UBERON:0007240', ('UBERON:0001496',))",tunica adventitia of artery IN ascending aorta,ApiNATOMY
-"('UBERON:0006465', ())",ninth thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0007240', ('UBERON:0002012',))",tunica adventitia of artery IN pulmonary artery,ApiNATOMY
-"('UBERON:0002847', ())",third thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0002844', ())",eighth cervical dorsal root ganglion,ApiNATOMY
-"('UBERON:0002849', ())",sixth thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0002846', ())",second thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0002843', ())",seventh cervical dorsal root ganglion,ApiNATOMY
-"('UBERON:0002845', ())",first thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0007711', ())",sixth cervical dorsal root ganglion,ApiNATOMY
-"('UBERON:0002848', ())",fifth thoracic dorsal root ganglion,ApiNATOMY
-"('UBERON:0007712', ())",fourth thoracic spinal ganglion,ApiNATOMY
-"('ILX:0793550', ())",mediastinal ganglion,ApiNATOMY
-"('ILX:0787722', ())",ventral root of the first thoracic spinal cord segment,ApiNATOMY
-"('ILX:0777097', ())",T4 - T5 interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0787946', ())",gray communicating ramus of sixth thoracic nerve,ApiNATOMY
-"('ILX:0793681', ('UBERON:0002106',))",Marginal zone network IN spleen,ApiNATOMY
-"('ILX:0788670', ())",ventral root of the tenth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0793227', ())",gray communicating ramus of thirteenth thoracic nerve,ApiNATOMY
-"('ILX:0790482', ())",Seventh thoracic ganglion,ApiNATOMY
-"('ILX:0784721', ())",Eighth thoracic ganglion,ApiNATOMY
-"('ILX:0787015', ())",Eleventh thoracic ganglion,ApiNATOMY
-"('ILX:0791932', ())",ventral root of the ninth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0739295', ())",Thirteenth thoracic ganglion,ApiNATOMY
-"('ILX:0791560', ())",gray communicating ramus of eighth thoracic nerve,ApiNATOMY
-"('ILX:0793220', ())",white communicating ramus of first lumbar spinal nerve,ApiNATOMY
-"('ILX:0792048', ())",ventral root of the twelveth thoracic spinal cord segment,ApiNATOMY
-"('ILX:0738306', ('UBERON:0006457',))",Neural tissue of T1 IN first thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0003716', ())",recurrent laryngeal nerve,ApiNATOMY
-"('ILX:0793219', ())",white communicating ramus of thirteenth thoracic spinal nerve,ApiNATOMY
-"('ILX:0738372', ())",white communicating ramus of first thoracic spinal nerve,ApiNATOMY
-"('ILX:0738291', ())",T1 - inferior cervical ganglion interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0793218', ())",white communicating ramus of twelfth thoracic spinal nerve,ApiNATOMY
-"('ILX:0738292', ())",middle cervical ganglion - superior cervical ganglion interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0738290', ())",inferior cervical ganglion - middle cervical ganglion interganglionic segment of the sympathetic chain,ApiNATOMY
-"('ILX:0787562', ())",gray communicating ramus of the third thoracic nerve,ApiNATOMY
-"('UBERON:0001898', ())",hypothalamus,ApiNATOMY
-"('ILX:0738371', ())",Rexed Lamina VII of T1,ApiNATOMY
-"('ILX:0789862', ())",First lumbar ganglion,ApiNATOMY
-"('ILX:0790602', ())",ventral root of the eleventh thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0005360', ())",inferior glossopharyngeal IX ganglion,ApiNATOMY
-"('ILX:0785542', ())",gray communicating ramus of ninth thoracic nerve,ApiNATOMY
-"('UBERON:0006456', ())",eighth thoracic spinal cord segment,ApiNATOMY
-"('UBERON:0009009', ())",carotid sinus nerve,ApiNATOMY
-"('ILX:0788771', ())",gray communicating ramus of seventh thoracic nerve,ApiNATOMY
-"('ILX:0787009', ())",Twelfth thoracic ganglion,ApiNATOMY
-"('ILX:0793082', ())",celiac ganglion- superior mesenteric ganglion complex,ApiNATOMY/sparc-nlp
-"('ILX:0784439', ())",gray communicating ramus of the fifth thoracic nerve,ApiNATOMY/sparc-nlp
-"('ILX:0793357', ())",Thirteenth thoracic spinal cord segment,ApiNATOMY/sparc-nlp
-"('UBERON:0006466', ())",tenth thoracic spinal cord segment,ApiNATOMY/sparc-nlp
-"('UBERON:0006468', ())",twelfth thoracic spinal cord segment,ApiNATOMY/sparc-nlp
-"('ILX:0788945', ())",gray communicating ramus of the fourth thoracic nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0006467', ())",eleventh thoracic spinal cord segment,ApiNATOMY/sparc-nlp
-"('UBERON:0006448', ())",first lumbar spinal cord segment,ApiNATOMY/sparc-nlp
-"('UBERON:0005363', ())",inferior vagus X ganglion,ApiNATOMY/sparc-nlp
-"('UBERON:0001759', ())",vagus nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0002870', ())",dorsal motor nucleus of vagus nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0001649', ())",glossopharyngeal nerve,ApiNATOMY/sparc-nlp
-"('ILX:0793209', ())",white communicating ramus of third thoracic spinal nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0018680', ())",greater splanchnic nerve,ApiNATOMY/sparc-nlp
-"('ILX:0793208', ())",white communicating ramus of second thoracic spinal nerve,ApiNATOMY/sparc-nlp
-"('ILX:0793212', ())",white communicating ramus of sixth thoracic spinal nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0005303', ())",hypogastric nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0006450', ())",second lumbar spinal cord segment,ApiNATOMY/sparc-nlp
-"('ILX:0793211', ())",white communicating ramus of fifth thoracic spinal nerve,ApiNATOMY/sparc-nlp
-"('ILX:0793210', ())",white communicating ramus of fourth thoracic spinal nerve,ApiNATOMY/sparc-nlp
-"('UBERON:0002262', ())",celiac ganglion,ApiNATOMY/sparc-nlp
-"('UBERON:0001719', ())",nucleus ambiguus,sparc-nlp
-"('ILX:0793817', ())",Intermediolateral nucleus of thirteenth thoracic segment,sparc-nlp
-"('UBERON:0035770', ())",inferior mesenteric nerve plexus,sparc-nlp
-"('ILX:0793883', ())",Dorsal gray commissure of second lumbar segment,sparc-nlp
-"('ILX:0793882', ())",Dorsal gray commissure of first lumbar segment,sparc-nlp
-"('UBERON:0018681', ())",lesser splanchnic nerve,sparc-nlp
-"('ILX:0793813', ())",Intermediolateral nucleus of ninth thoracic segment,sparc-nlp
-"('ILX:0793821', ())",prevertebral sympathetic ganglion in abdominal aortic plexus,sparc-nlp
-"('ILX:0793832', ())",ovarian nerve plexus,sparc-nlp
-"('ILX:0793819', ())",Intermediolateral nucleus of second lumbar segment,sparc-nlp
-"('UBERON:0016508', ())",pelvic ganglion,sparc-nlp
-"('UBERON:0009050', ())",nucleus of solitary tract,sparc-nlp
-"('ILX:0793833', ())",ovarian nerve plexus parasympathetic ganglion,sparc-nlp
-"('UBERON:0006608', ())",corpus cavernosum clitoridis,sparc-nlp
-"('ILX:0793808', ())",uterovaginal nerve plexus,sparc-nlp
-"('ILX:0793809', ())",Clitoral cavernous nerve,sparc-nlp
-"('UBERON:0002366', ())",bulbo-urethral gland,sparc-nlp
-"('UBERON:0011183', ())",corpus spongiosum of penis,sparc-nlp
-"('UBERON:0002014', ())",inferior hypogastric nerve plexus,sparc-nlp
-"('UBERON:0004713', ())",corpus cavernosum penis,sparc-nlp
-"('ILX:0793807', ())",Penile cavernous nerve,sparc-nlp
-"('ILX:0793806', ())",prostatic nerve plexus,sparc-nlp
-"('ILX:0793818', ())",Intermediolateral nucleus of first lumbar segment,sparc-nlp
-"('UBERON:0035772', ())",aortic plexus,sparc-nlp
-"('UBERON:0011926', ())",postganglionic sympathetic fiber,sparc-nlp
-"('UBERON:0001831', ())",parotid gland,sparc-nlp
-"('ILX:0793877', ())",Intermediolateral nucleus of sixth lumbar segment,sparc-nlp
-"('ILX:0793814', ())",Intermediolateral nucleus of tenth thoracic segment,sparc-nlp
-"('UBERON:0001826', ())",nasal cavity mucosa,sparc-nlp
-"('UBERON:0008810', ())",nasopalatine nerve,sparc-nlp
-"('ILX:0793723', ())",Auriculotemporal nerve,sparc-nlp
-"('ILX:0793834', ())",accessory pelvic ganglion,sparc-nlp
-"('UBERON:0003729', ())",mouth mucosa,sparc-nlp
-"('ILX:0793738', ())",Nerve fiber from submandibular ganglion to mouth mucosa,sparc-nlp
-"('ILX:0793737', ())",Nerve fiber from submandibular ganglion to submandibular gland,sparc-nlp
-"('UBERON:0001736', ())",submandibular gland,sparc-nlp
-"('UBERON:0001832', ())",sublingual gland,sparc-nlp
-"('ILX:0793739', ())",Nerve fiber from submandibular ganglion to sublingual gland,sparc-nlp
-"('UBERON:0000998', ())",seminal vesicle,sparc-nlp
-"('UBERON:0006463', ())",fourth sacral spinal cord segment,sparc-nlp
-"('UBERON:0004665', ())",muscular coat of seminal vesicle,sparc-nlp
-"('ILX:0793884', ())",first accessory pelvic ganglion,sparc-nlp
-"('UBERON:0004805', ())",seminal vesicle epithelium,sparc-nlp
-"('ILX:0793880', ())",Intermediolateral nucleus of third sacral segment,sparc-nlp
-"('ILX:0793879', ())",Intermediolateral nucleus of second sacral segment,sparc-nlp
-"('ILX:0793881', ())",Intermediolateral nucleus of fourth sacral segment,sparc-nlp
-"('ILX:0793815', ())",Intermediolateral nucleus of eleventh thoracic segment,sparc-nlp
-"('ILX:0793816', ())",Intermediolateral nucleus of twelfth thoracic segment,sparc-nlp
-"('UBERON:0002013', ())",superior hypogastric nerve plexus,sparc-nlp
-"('UBERON:0000428', ())",prostate epithelium,sparc-nlp
-"('UBERON:0011929', ())",postganglionic parasympathetic fiber,sparc-nlp
-"('ILX:0793878', ())",Intermediolateral nucleus of first sacral segment,sparc-nlp
-"('UBERON:0004243', ())",prostate gland smooth muscle,sparc-nlp
-"('ILX:0793805', ())",S1 sacral parasympathetic nucleus,sparc-nlp
-"('UBERON:0003963', ())",otic ganglion,sparc-nlp
-"('ILX:0793823', ())",major pelvic ganglion,sparc-nlp
-"('UBERON:0001780', ())",spinal nerve,sparc-nlp
-"('ILX:0739304', ())",gray communicating ramus of third thoracic nerve,sparc-nlp
-"('ILX:0739303', ())",gray communicating ramus of second thoracic nerve,sparc-nlp
-"('ILX:0790497', ())",Gray communicating ramus of cervicothoracic ganglion to first thoracic spinal nerve,sparc-nlp
-"('ILX:0738444', ())",interscapular brown adipose tissue,sparc-nlp
-"('ILX:0786272', ())",Fourth thoracic ganglion,sparc-nlp
-"('ILX:0786228', ())",Second thoracic ganglion,sparc-nlp
-"('ILX:0793618', ())",T3 sympathetic chain,sparc-nlp
-"('ILX:0793701', ())",Intermediolateral nucleus of sixth thoracic segment,sparc-nlp
-"('ILX:0786722', ())",Third thoracic ganglion,sparc-nlp
-"('ILX:0793700', ())",Intermediolateral nucleus of fifth thoracic segment,sparc-nlp
-"('ILX:0786141', ())",Fifth thoracic ganglion,sparc-nlp
-"('ILX:0793735', ())",Myenteric ganglion of small intestine,sparc-nlp
-"('UBERON:0002441', ())",cervicothoracic ganglion,sparc-nlp
-"('ILX:0793619', ())",T4 sympathetic chain,sparc-nlp
-"('ILX:0793617', ())",T2 sympathetic chain,sparc-nlp
-"('ILX:0793335', ())",T5 sympathetic chain,sparc-nlp
-"('ILX:0793699', ())",Intermediolateral nucleus of fourth thoracic segment,sparc-nlp
-"('ILX:0793336', ())",T6 sympathetic chain,sparc-nlp
-"('UBERON:0018412', ())",vidian nerve,sparc-nlp
-"('UBERON:0003962', ())",pterygopalatine ganglion,sparc-nlp
-"('ILX:0793702', ())",Greater petrosal nerve,sparc-nlp
-"('UBERON:0001647', ())",facial nerve,sparc-nlp
-"('UBERON:0002149', ())",superior salivatory nucleus,sparc-nlp
-"('UBERON:0022278', ())",nucleus of pudendal nerve,sparc-nlp
-"('UBERON:0004917', ())",urethral sphincter,sparc-nlp
-"('ILX:0793697', ())",Intermediolateral nucleus of second thoracic segment,sparc-nlp
-"('ILX:0793714', ())",Mesenteric nerve,sparc-nlp
-"('UBERON:0002370', ())",thymus,sparc-nlp
-"('UBERON:0011096', ())",lacrimal nerve,sparc-nlp
-"('ILX:0793812', ())",Intermediolateral nucleus of eighth thoracic segment,sparc-nlp
-"('ILX:0793811', ())",Intermediolateral nucleus of seventh thoracic segment,sparc-nlp
-"('UBERON:0001236', ())",adrenal medulla,sparc-nlp
-"('UBERON:0000992', ())",ovary,sparc-nlp
-"('ILX:0793822', ())",Superior ovarian nerve,sparc-nlp
-"('ILX:0793801', ())",S3 sacral parasympathetic nucleus,sparc-nlp
-"('ILX:0793802', ())",S4 sacral parasympathetic nucleus,sparc-nlp
-"('ILX:0793800', ())",S2 sacral parasympathetic nucleus,sparc-nlp
-"('ILX:0793803', ())",inferior hypogastric nerve plexus ganglion,sparc-nlp
-"('UBERON:0001605', ())",ciliary muscle,sparc-nlp
-"('UBERON:0002059', ())",submandibular ganglion,sparc-nlp
-"('UBERON:0003721', ())",lingual nerve,sparc-nlp
-"('UBERON:0009675', ())",chorda tympani branch of facial nerve,sparc-nlp
-"('UBERON:0002141', ())",parvocellular oculomotor nucleus,sparc-nlp
-"('UBERON:0002058', ())",main ciliary ganglion,sparc-nlp
-"('UBERON:0001643', ())",oculomotor nerve,sparc-nlp
-"('UBERON:0036216', ())",tympanic nerve,sparc-nlp
-"('ILX:0793722', ())",Lesser petrosal nerve,sparc-nlp
-"('UBERON:0002872', ())",inferior salivatory nucleus,sparc-nlp
-"('UBERON:0022302', ())",short ciliary nerve,sparc-nlp
-"('UBERON:0001607', ())",sphincter pupillae,sparc-nlp
-"('UBERON:0022301', ())",long ciliary nerve,sparc-nlp
-"('UBERON:0011194', ())",ophthalmic plexus,sparc-nlp
-"('ILX:0793711', ())",Communicating branch of zygomatic nerve,sparc-nlp
-"('ILX:0793712', ())",Zygomatic nerve,sparc-nlp
-"('ILX:0793713', ())",Deep petrosal nerve,sparc-nlp
-"('UBERON:0001817', ())",lacrimal gland,sparc-nlp
-"('ILX:0793804', ())",L6 parasympathetic nucleus,sparc-nlp
-"('ILX:0793698', ())",Intermediolateral nucleus of third thoracic segment,sparc-nlp
+"('UBERON:0007240', ('UBERON:0001496',))",tunica adventitia of artery IN ascending aorta,"ilxtr:neuron-type-aacar-12
+ilxtr:neuron-type-aacar-11"
+"('ILX:0777097', ())",T4 - T5 interganglionic segment of the sympathetic chain,ilxtr:neuron-type-aacar-5
+"('ILX:0777094', ())",T1 - T2 interganglionic segment of the sympathetic chain,ilxtr:neuron-type-aacar-5
+"('ILX:0785971', ())",ventral root of the fifth sacral spinal cord segment,ilxtr:neuron-type-aacar-5
+"('ILX:0777098', ())",T5 - T6 interganglionic segment of the sympathetic chain,ilxtr:neuron-type-aacar-5
+"('ILX:0777095', ())",T2 - T3 interganglionic segment of the sympathetic chain,ilxtr:neuron-type-aacar-5
+"('ILX:0777096', ())",T3 - T4 interganglionic segment of the sympathetic chain,ilxtr:neuron-type-aacar-5
+"('ILX:0793363', ())",Interganglionic branch of inferior cervical ganglion to vertebral ganglion,ilxtr:neuron-type-aacar-5
+"('ILX:0793233', ())",Interganglionic branch of inferior cervical ganglion to first thoracic ganglion,ilxtr:neuron-type-aacar-5
+"('ILX:0793234', ())",Interganglionic branch of inferior cervical ganglion to middle cervical ganglion,ilxtr:neuron-type-aacar-5
+"('ILX:0793550', ())",mediastinal ganglion,"ilxtr:neuron-type-aacar-6
+ilxtr:neuron-type-aacar-5"
+"('ILX:0738371', ())",Rexed Lamina VII of T1,"ilxtr:neuron-type-bolew-unbranched-6
+ilxtr:neuron-type-bolew-unbranched-1
+ilxtr:neuron-type-bolew-unbranched-3
+ilxtr:neuron-type-bolew-unbranched-2
+ilxtr:neuron-type-bolew-unbranched-7"
+"('UBERON:0016578', ('ILX:0793357',))",lamina VII of gray matter of spinal cord IN Thirteenth thoracic spinal cord segment,"ilxtr:neuron-type-bromo-1
+ilxtr:neuron-type-sdcol-c"
+"('ILX:0793357', ())",Thirteenth thoracic spinal cord segment,"ilxtr:neuron-type-bromo-1
+ilxtr:neuron-type-sdcol-c
+ilxtr:sparc-nlp/semves/5
+ilxtr:neuron-type-keast-20"
+"('UBERON:0035965', ('ILX:0793663',))",wall of blood vessel IN Arteriole in connective tissue of bladder neck,"ilxtr:neuron-type-keast-4
+ilxtr:neuron-type-keast-10
+ilxtr:neuron-type-keast-11"
+"('UBERON:0035965', ('ILX:0793664',))",wall of blood vessel IN Arteriole in connective tissue of bladder dome,"ilxtr:neuron-type-keast-4
+ilxtr:neuron-type-keast-10
+ilxtr:neuron-type-keast-11"
+"('UBERON:0005734', ('UBERON:0006637',))",tunica adventitia of blood vessel IN celiac trunk,ilxtr:neuron-type-pancr-2
+"('ILX:0793674', ())",nerve plexus in adventitia of inferior pancreaticoduodenal artery,ilxtr:neuron-type-pancr-2
+"('ILX:0793673', ())",Nerve plexus in adventitia of splenic artery,ilxtr:neuron-type-pancr-2
+"('UBERON:0005734', ('UBERON:0001182',))",tunica adventitia of blood vessel IN superior mesenteric artery,ilxtr:neuron-type-pancr-2
+"('UBERON:0005734', ('UBERON:0001195',))",tunica adventitia of blood vessel IN inferior pancreaticoduodenal artery,ilxtr:neuron-type-pancr-2
+"('UBERON:0005734', ('UBERON:0001194',))",tunica adventitia of blood vessel IN splenic artery,ilxtr:neuron-type-pancr-2
+"('ILX:0793676', ())",nerve plexus in adventitia of hepatic artery,ilxtr:neuron-type-pancr-2
+"('UBERON:0005734', ('UBERON:0001193',))",tunica adventitia of blood vessel IN hepatic artery,ilxtr:neuron-type-pancr-2
+"('UBERON:0005479', ())",superior mesenteric ganglion,"ilxtr:neuron-type-pancr-2
+ilxtr:neuron-type-pancr-1"
+"('UBERON:0000006', ())",islet of Langerhans,"ilxtr:neuron-type-pancr-3
+ilxtr:neuron-type-pancr-2"
+"('UBERON:0002384', ('UBERON:0001263',))",connective tissue IN pancreatic acinus,"ilxtr:neuron-type-pancr-3
+ilxtr:neuron-type-pancr-2
+ilxtr:neuron-type-pancr-4
+ilxtr:neuron-type-pancr-5"
+"('ILX:0793178', ())",intrapancreatic ganglia,"ilxtr:neuron-type-pancr-3
+ilxtr:neuron-type-pancr-2
+ilxtr:neuron-type-pancr-4
+ilxtr:neuron-type-pancr-5"
+"('ILX:0793613', ('UBERON:0001263',))",Epithelium of pancreatic acinus IN pancreatic acinus,ilxtr:neuron-type-pancr-4
+"('UBERON:0005769', ('UBERON:0001263',))",basement membrane of epithelium IN pancreatic acinus,ilxtr:neuron-type-pancr-4
+"('UBERON:0003535', ())",vagus X nerve trunk,ilxtr:neuron-type-pancr-5
+"('UBERON:0002181', ('ILX:0793357',))",substantia gelatinosa IN Thirteenth thoracic spinal cord segment,ilxtr:neuron-type-sdcol-c
+"('UBERON:0016576', ('ILX:0793357',))",lamina V of gray matter of spinal cord IN Thirteenth thoracic spinal cord segment,ilxtr:neuron-type-sdcol-c
+"('UBERON:0006118', ('ILX:0793357',))",lamina I of gray matter of spinal cord IN Thirteenth thoracic spinal cord segment,ilxtr:neuron-type-sdcol-c
+"('UBERON:0004677', ('ILX:0793357',))",spinal cord gray commissure IN Thirteenth thoracic spinal cord segment,ilxtr:neuron-type-sdcol-c
+"('UBERON:0035965', ('ILX:0793644',))",wall of blood vessel IN Arteriole in myenteric nerve plexus of descending colon,ilxtr:neuron-type-sdcol-f
+"('UBERON:0035965', ('ILX:0793643',))",wall of blood vessel IN Arteriole in longitudinal muscle layer of descending colon,ilxtr:neuron-type-sdcol-f
+"('UBERON:0035965', ('ILX:0793641',))",wall of blood vessel IN Arteriole in circular muscle layer of descending colon,ilxtr:neuron-type-sdcol-f
+"('UBERON:0035965', ('ILX:0793646',))",wall of blood vessel IN Arteriole in submucous nerve plexus of descending colon,ilxtr:neuron-type-sdcol-f
+"('UBERON:0035965', ('ILX:0793642',))",wall of blood vessel IN Arteriole in lamina propria of mucosa of descending colon,ilxtr:neuron-type-sdcol-f
+"('UBERON:0035965', ('ILX:0793645',))",wall of blood vessel IN Arteriole in serosa of descending colon,ilxtr:neuron-type-sdcol-f
+"('ILX:0793563', ())",splenic nerve,ilxtr:neuron-type-splen-5
+"('UBERON:0009961', ('UBERON:0013473',))",esophagus smooth muscle longitudinal layer IN lower esophagus,ilxtr:neuron-type-sstom-5
+"('UBERON:0013473', ())",lower esophagus,ilxtr:neuron-type-sstom-5
+"('UBERON:0001975', ('UBERON:0013473',))",serosa of esophagus IN lower esophagus,ilxtr:neuron-type-sstom-5
+"('UBERON:0022278', ())",nucleus of pudendal nerve,ilxtr:sparc-nlp/mmset1/1
+"('UBERON:0004917', ())",urethral sphincter,ilxtr:sparc-nlp/mmset1/1
+"('ILX:0793702', ())",Greater petrosal nerve,ilxtr:sparc-nlp/mmset1/10
+"('UBERON:0018412', ())",vidian nerve,"ilxtr:sparc-nlp/mmset1/10
+ilxtr:sparc-nlp/mmset1/2"
+"('UBERON:0002149', ())",superior salivatory nucleus,"ilxtr:sparc-nlp/mmset1/10
+ilxtr:sparc-nlp/mmset2cn/3"
+"('UBERON:0001647', ())",facial nerve,"ilxtr:sparc-nlp/mmset1/10
+ilxtr:sparc-nlp/mmset2cn/3"
+"('UBERON:0003962', ())",pterygopalatine ganglion,"ilxtr:sparc-nlp/mmset1/10
+ilxtr:sparc-nlp/mmset2cn/7
+ilxtr:sparc-nlp/mmset2cn/9"
+"('ILX:0793336', ())",T6 sympathetic chain,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793697', ())",Intermediolateral nucleus of second thoracic segment,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793617', ())",T2 sympathetic chain,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793698', ())",Intermediolateral nucleus of third thoracic segment,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793618', ())",T3 sympathetic chain,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793619', ())",T4 sympathetic chain,ilxtr:sparc-nlp/mmset1/11
+"('ILX:0793335', ())",T5 sympathetic chain,ilxtr:sparc-nlp/mmset1/11
+"('UBERON:0002441', ())",cervicothoracic ganglion,"ilxtr:sparc-nlp/mmset1/11
+ilxtr:sparc-nlp/mmset1/12"
+"('ILX:0793699', ())",Intermediolateral nucleus of fourth thoracic segment,"ilxtr:sparc-nlp/mmset1/11
+ilxtr:sparc-nlp/mmset4/7"
+"('ILX:0738444', ())",interscapular brown adipose tissue,ilxtr:sparc-nlp/mmset1/12
+"('ILX:0790497', ())",Gray communicating ramus of cervicothoracic ganglion to first thoracic spinal nerve,ilxtr:sparc-nlp/mmset1/12
+"('ILX:0739303', ())",gray communicating ramus of second thoracic nerve,ilxtr:sparc-nlp/mmset1/12
+"('ILX:0739304', ())",gray communicating ramus of third thoracic nerve,ilxtr:sparc-nlp/mmset1/12
+"('ILX:0793714', ())",Mesenteric nerve,ilxtr:sparc-nlp/mmset1/13
+"('ILX:0793735', ())",Myenteric ganglion of small intestine,ilxtr:sparc-nlp/mmset1/13
+"('UBERON:0002262', ())",celiac ganglion,"ilxtr:sparc-nlp/mmset1/13
+ilxtr:neuron-type-pancr-2
+ilxtr:neuron-type-pancr-1
+ilxtr:sparc-nlp/mmset4/12"
+"('UBERON:0002370', ())",thymus,ilxtr:sparc-nlp/mmset1/14
+"('ILX:0793712', ())",Zygomatic nerve,ilxtr:sparc-nlp/mmset1/2
+"('ILX:0793713', ())",Deep petrosal nerve,ilxtr:sparc-nlp/mmset1/2
+"('UBERON:0001817', ())",lacrimal gland,"ilxtr:sparc-nlp/mmset1/2
+ilxtr:sparc-nlp/mmset2cn/7"
+"('ILX:0793711', ())",Communicating branch of zygomatic nerve,"ilxtr:sparc-nlp/mmset1/2
+ilxtr:sparc-nlp/mmset2cn/7"
+"('UBERON:0011096', ())",lacrimal nerve,"ilxtr:sparc-nlp/mmset1/2
+ilxtr:sparc-nlp/mmset2cn/7"
+"('UBERON:0022301', ())",long ciliary nerve,ilxtr:sparc-nlp/mmset1/3
+"('UBERON:0011194', ())",ophthalmic plexus,"ilxtr:sparc-nlp/mmset1/3a
+ilxtr:sparc-nlp/mmset1/3"
+"('UBERON:0022302', ())",short ciliary nerve,"ilxtr:sparc-nlp/mmset1/3a
+ilxtr:sparc-nlp/mmset2cn/4
+ilxtr:sparc-nlp/mmset2cn/5"
+"('UBERON:0036216', ())",tympanic nerve,ilxtr:sparc-nlp/mmset1/5
+"('UBERON:0002872', ())",inferior salivatory nucleus,ilxtr:sparc-nlp/mmset1/5
+"('ILX:0793722', ())",Lesser petrosal nerve,ilxtr:sparc-nlp/mmset1/5
+"('UBERON:0001643', ())",oculomotor nerve,ilxtr:sparc-nlp/mmset2cn/1
+"('UBERON:0002141', ())",parvocellular oculomotor nucleus,ilxtr:sparc-nlp/mmset2cn/1
+"('UBERON:0002058', ())",main ciliary ganglion,"ilxtr:sparc-nlp/mmset2cn/1
+ilxtr:sparc-nlp/mmset2cn/4
+ilxtr:sparc-nlp/mmset2cn/5"
+"('ILX:0793739', ())",Nerve fiber from submandibular ganglion to sublingual gland,ilxtr:sparc-nlp/mmset2cn/10
+"('ILX:0793737', ())",Nerve fiber from submandibular ganglion to submandibular gland,ilxtr:sparc-nlp/mmset2cn/11
+"('ILX:0793738', ())",Nerve fiber from submandibular ganglion to mouth mucosa,ilxtr:sparc-nlp/mmset2cn/12
+"('UBERON:0003729', ())",mouth mucosa,ilxtr:sparc-nlp/mmset2cn/12
+"('UBERON:0002059', ())",submandibular ganglion,"ilxtr:sparc-nlp/mmset2cn/12
+ilxtr:sparc-nlp/mmset2cn/10
+ilxtr:sparc-nlp/mmset2cn/3
+ilxtr:sparc-nlp/mmset2cn/11"
+"('UBERON:0003721', ())",lingual nerve,ilxtr:sparc-nlp/mmset2cn/3
+"('UBERON:0009675', ())",chorda tympani branch of facial nerve,ilxtr:sparc-nlp/mmset2cn/3
+"('UBERON:0001605', ())",ciliary muscle,ilxtr:sparc-nlp/mmset2cn/4
+"('UBERON:0001607', ())",sphincter pupillae,"ilxtr:sparc-nlp/mmset2cn/5
+ilxtr:sparc-nlp/mmset1/3a
+ilxtr:sparc-nlp/mmset1/3"
+"('ILX:0793723', ())",Auriculotemporal nerve,ilxtr:sparc-nlp/mmset2cn/6
+"('UBERON:0003963', ())",otic ganglion,"ilxtr:sparc-nlp/mmset2cn/6
+ilxtr:sparc-nlp/mmset1/5"
+"('UBERON:0001826', ())",nasal cavity mucosa,ilxtr:sparc-nlp/mmset2cn/9
+"('UBERON:0008810', ())",nasopalatine nerve,ilxtr:sparc-nlp/mmset2cn/9
+"('ILX:0793800', ())",S2 sacral parasympathetic nucleus,ilxtr:sparc-nlp/mmset4/1
+"('ILX:0793802', ())",S4 sacral parasympathetic nucleus,ilxtr:sparc-nlp/mmset4/1
+"('ILX:0793801', ())",S3 sacral parasympathetic nucleus,ilxtr:sparc-nlp/mmset4/1
+"('ILX:0793803', ())",inferior hypogastric nerve plexus ganglion,"ilxtr:sparc-nlp/mmset4/1
+ilxtr:sparc-nlp/mmset4/3"
+"('ILX:0793822', ())",Superior ovarian nerve,ilxtr:sparc-nlp/mmset4/10
+"('UBERON:0001236', ())",adrenal medulla,ilxtr:sparc-nlp/mmset4/11
+"('ILX:0793804', ())",L6 parasympathetic nucleus,ilxtr:sparc-nlp/mmset4/2
+"('ILX:0793805', ())",S1 sacral parasympathetic nucleus,ilxtr:sparc-nlp/mmset4/2
+"('ILX:0793834', ())",accessory pelvic ganglion,"ilxtr:sparc-nlp/mmset4/2
+ilxtr:sparc-nlp/mmset4/3c
+ilxtr:sparc-nlp/mmset4/3b
+ilxtr:sparc-nlp/mmset4/3a"
+"('ILX:0793823', ())",major pelvic ganglion,"ilxtr:sparc-nlp/mmset4/2
+ilxtr:sparc-nlp/prostate/11
+ilxtr:sparc-nlp/mmset4/3c
+ilxtr:sparc-nlp/prostate/12
+ilxtr:sparc-nlp/semves/2a
+ilxtr:sparc-nlp/mmset4/3b
+ilxtr:sparc-nlp/semves/4
+ilxtr:sparc-nlp/prostate/13
+ilxtr:sparc-nlp/semves/2
+ilxtr:sparc-nlp/semves/4a
+ilxtr:sparc-nlp/mmset4/3a
+ilxtr:sparc-nlp/semves/1
+ilxtr:sparc-nlp/prostate/14"
+"('ILX:0793806', ())",prostatic nerve plexus,ilxtr:sparc-nlp/mmset4/3
+"('UBERON:0011183', ())",corpus spongiosum of penis,ilxtr:sparc-nlp/mmset4/3b
+"('UBERON:0002366', ())",bulbo-urethral gland,ilxtr:sparc-nlp/mmset4/3c
+"('ILX:0793807', ())",Penile cavernous nerve,"ilxtr:sparc-nlp/mmset4/3c
+ilxtr:sparc-nlp/mmset4/3b
+ilxtr:sparc-nlp/mmset4/3
+ilxtr:sparc-nlp/mmset4/3a"
+"('ILX:0793809', ())",Clitoral cavernous nerve,ilxtr:sparc-nlp/mmset4/3e
+"('UBERON:0006608', ())",corpus cavernosum clitoridis,ilxtr:sparc-nlp/mmset4/3e
+"('ILX:0793808', ())",uterovaginal nerve plexus,ilxtr:sparc-nlp/mmset4/3e
+"('UBERON:0002014', ())",inferior hypogastric nerve plexus,"ilxtr:sparc-nlp/mmset4/3e
+ilxtr:sparc-nlp/mmset4/3"
+"('ILX:0793833', ())",ovarian nerve plexus parasympathetic ganglion,"ilxtr:sparc-nlp/mmset4/5
+ilxtr:sparc-nlp/mmset4/4c
+ilxtr:sparc-nlp/mmset4/4a
+ilxtr:sparc-nlp/mmset4/4b"
+"('ILX:0793832', ())",ovarian nerve plexus,"ilxtr:sparc-nlp/mmset4/5
+ilxtr:sparc-nlp/mmset4/9"
+"('UBERON:0000992', ())",ovary,"ilxtr:sparc-nlp/mmset4/5
+ilxtr:sparc-nlp/mmset4/9
+ilxtr:sparc-nlp/mmset4/6
+ilxtr:sparc-nlp/mmset4/10"
+"('ILX:0793814', ())",Intermediolateral nucleus of tenth thoracic segment,ilxtr:sparc-nlp/mmset4/7
+"('ILX:0793700', ())",Intermediolateral nucleus of fifth thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/11
+ilxtr:sparc-nlp/mmset1/11
+ilxtr:sparc-nlp/mmset4/8
+ilxtr:sparc-nlp/mmset4/12"
+"('ILX:0793701', ())",Intermediolateral nucleus of sixth thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/11
+ilxtr:sparc-nlp/mmset1/11
+ilxtr:sparc-nlp/mmset4/8
+ilxtr:sparc-nlp/mmset4/12"
+"('ILX:0793812', ())",Intermediolateral nucleus of eighth thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/11
+ilxtr:sparc-nlp/mmset4/12
+ilxtr:sparc-nlp/mmset4/8"
+"('ILX:0793811', ())",Intermediolateral nucleus of seventh thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/11
+ilxtr:sparc-nlp/mmset4/12
+ilxtr:sparc-nlp/mmset4/8"
+"('ILX:0793813', ())",Intermediolateral nucleus of ninth thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/8"
+"('ILX:0793821', ())",prevertebral sympathetic ganglion in abdominal aortic plexus,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/mmset4/9
+ilxtr:sparc-nlp/mmset4/8"
+"('ILX:0793816', ())",Intermediolateral nucleus of twelfth thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/prostate/15"
+"('ILX:0793815', ())",Intermediolateral nucleus of eleventh thoracic segment,"ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/prostate/15"
+"('UBERON:0035772', ())",aortic plexus,"ilxtr:sparc-nlp/mmset4/9
+ilxtr:sparc-nlp/mmset4/4c
+ilxtr:sparc-nlp/mmset4/4a
+ilxtr:sparc-nlp/mmset4/4b"
+"('UBERON:0035770', ())",inferior mesenteric nerve plexus,ilxtr:sparc-nlp/prostate/11
+"('ILX:0793883', ())",Dorsal gray commissure of second lumbar segment,ilxtr:sparc-nlp/prostate/11
+"('ILX:0793882', ())",Dorsal gray commissure of first lumbar segment,ilxtr:sparc-nlp/prostate/11
+"('ILX:0793817', ())",Intermediolateral nucleus of thirteenth thoracic segment,"ilxtr:sparc-nlp/prostate/11
+ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/prostate/15"
+"('ILX:0793819', ())",Intermediolateral nucleus of second lumbar segment,"ilxtr:sparc-nlp/prostate/11
+ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/semves/1
+ilxtr:sparc-nlp/prostate/15"
+"('ILX:0793818', ())",Intermediolateral nucleus of first lumbar segment,"ilxtr:sparc-nlp/prostate/11
+ilxtr:sparc-nlp/mmset4/7
+ilxtr:sparc-nlp/semves/1
+ilxtr:sparc-nlp/prostate/15"
+"('UBERON:0011926', ())",postganglionic sympathetic fiber,"ilxtr:sparc-nlp/prostate/12
+ilxtr:sparc-nlp/semves/2a
+ilxtr:sparc-nlp/semves/2
+ilxtr:sparc-nlp/semves/6
+ilxtr:sparc-nlp/prostate/25
+ilxtr:sparc-nlp/prostate/16"
+"('ILX:0793878', ())",Intermediolateral nucleus of first sacral segment,ilxtr:sparc-nlp/prostate/13
+"('ILX:0793877', ())",Intermediolateral nucleus of sixth lumbar segment,ilxtr:sparc-nlp/prostate/13
+"('UBERON:0000428', ())",prostate epithelium,"ilxtr:sparc-nlp/prostate/14
+ilxtr:sparc-nlp/prostate/18"
+"('UBERON:0004243', ())",prostate gland smooth muscle,"ilxtr:sparc-nlp/prostate/16
+ilxtr:sparc-nlp/prostate/12
+ilxtr:sparc-nlp/prostate/25"
+"('ILX:0793880', ())",Intermediolateral nucleus of third sacral segment,ilxtr:sparc-nlp/prostate/17
+"('ILX:0793879', ())",Intermediolateral nucleus of second sacral segment,ilxtr:sparc-nlp/prostate/17
+"('ILX:0793881', ())",Intermediolateral nucleus of fourth sacral segment,ilxtr:sparc-nlp/prostate/17
+"('UBERON:0011929', ())",postganglionic parasympathetic fiber,"ilxtr:sparc-nlp/prostate/18
+ilxtr:sparc-nlp/semves/4a
+ilxtr:sparc-nlp/semves/8
+ilxtr:sparc-nlp/semves/4
+ilxtr:sparc-nlp/prostate/14"
+"('UBERON:0004805', ())",seminal vesicle epithelium,"ilxtr:sparc-nlp/semves/4
+ilxtr:sparc-nlp/semves/2"
+"('ILX:0793884', ())",first accessory pelvic ganglion,"ilxtr:sparc-nlp/semves/4
+ilxtr:sparc-nlp/semves/2
+ilxtr:sparc-nlp/semves/4a
+ilxtr:sparc-nlp/semves/2a"
+"('UBERON:0002013', ())",superior hypogastric nerve plexus,"ilxtr:sparc-nlp/semves/5
+ilxtr:sparc-nlp/prostate/15"
+"('UBERON:0004665', ())",muscular coat of seminal vesicle,"ilxtr:sparc-nlp/semves/6
+ilxtr:sparc-nlp/semves/4a
+ilxtr:sparc-nlp/semves/2a"
+"('UBERON:0006463', ())",fourth sacral spinal cord segment,ilxtr:sparc-nlp/semves/7
