@@ -118,8 +118,6 @@ class FeatureAnatomicalNodeMap:
 
         anatomical_id = anatomical_node[0]
         features = features_from_anatomical_id(anatomical_id)
-        if anatomical_id=='ILX:0738320':
-            print('--', anatomical_id, features)
         layers = list(anatomical_node[1])
         if len(layers) == 0:
             return (anatomical_node, features)
