@@ -64,10 +64,12 @@ class PropertiesStore(object):
             self.__pathways.add_connectivity(connectivity)
 
         # Node aliases defined in JSON
-        if manifest.node_aliases is None:
-            node_aliases_dict = {}
-        else:
-            node_aliases_dict = FilePath(manifest.node_aliases).get_json()
+        node_aliases_dict = {}
+        if manifest.node_aliases is not None:
+            for node_alias in FilePath(manifest.node_aliases).get_json():
+                node = node_alias.get('node')
+                alias = node_alias.get('alias')
+                node_aliases_dict[(node[0], tuple(node[1]))] = (alias[0], tuple(alias[1]))
         self.__node_aliases = node_aliases_dict
 
         # Connectivity from SciCrunch
