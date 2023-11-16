@@ -694,6 +694,11 @@ class Network(object):
 
     def __feature_properties_from_node(self, connectivity_node: AnatomicalNode) -> dict[str, Any]:
     #=============================================================================================
+        # Allow to use the identified alias
+        if ((matched := self.__flatmap.features_for_anatomical_node(connectivity_node)) is None) and \
+            (alias_node:=self.__flatmap.properties_store.node_aliases.get(connectivity_node)) is not None:
+            connectivity_node = AnatomicalNode(alias_node)
+
         # Find the features and centrelines that corresponds to a connectivity node
         properties: dict[str, Any] = {
             'node': connectivity_node,
@@ -702,27 +707,18 @@ class Network(object):
             'contains': set(),
             'used': set()
         }
+
         # Can we directly identify the centreline from nodes anatomical base term?
         if (centreline_ids := self.__models_to_id.get(connectivity_node[0])) is not None:
             if len(connectivity_node[1]) > 0:
                 log.error(f'Node {connectivity_node.full_name} has centreline inside layers')
             properties.update(self.__segment_properties_from_ids(centreline_ids))
-
-        elif (matched := self.__flatmap.features_for_anatomical_node(connectivity_node)) is not None:
+        elif matched is not None:
             properties['name'] = matched[0].name
             features = set(f for f in matched[1] if f.id is not None)
             if len(features):
                 properties['type'] = 'feature'
                 properties['features'] = features
-            elif (alias_node:=self.__flatmap.properties_store.node_aliases.get(connectivity_node[0])) is not None:
-                # allowing alias
-                matched = self.__flatmap.features_for_anatomical_node(alias_node)
-                properties['node'] = alias_node
-                properties['name'] = matched[0].name
-                features = set(f for f in matched[1] if f.id is not None)
-                properties['type'] = 'feature'
-                properties['features'] = features
-                print(properties, features)
             elif connectivity_node not in self.__missing_identifiers:
                 properties['warning'] = f'Cannot find feature for connectivity node {connectivity_node} ({connectivity_node.full_name})'
                 self.__missing_identifiers.add(connectivity_node)
@@ -762,7 +758,6 @@ class Network(object):
         # in the connectivity graph
         for node, node_dict in connectivity_graph.nodes(data=True):
             node_dict.update(self.__feature_properties_from_node(node))
-            # print('!-', node.name, node[0], node_dict)
             if (warning := node_dict.pop('warning', None)) is not None:
                 log.warning(f'{path.id}: {warning}')
         if path.trace:
@@ -1105,13 +1100,6 @@ class Network(object):
             for n_0, n_1, ed in route_graph.edges(data=True):
                 log.info(f'{path.id}: Edge {n_0} -> {n_1}: {ed.get("centreline")}')
 
-        # print(' -- = ', self.__centreline_nodes.keys())
-        # print(' ++ = ', self.__centreline_nodes['vagus_n-4'])
-        # print(' !! = ', self.__segment_edge_by_segment)
-        # print(' -- = ', self.__segment_ids_by_centreline.keys())
-        # print(' && ', self.__centreline_graph.edges)
-
-
         if debug:
             return (route_graph, G, connectivity_graph, terminal_graphs)    # type: ignore
         else:
@@ -1205,7 +1193,7 @@ class Network(object):
                 # log.warning(f' - - specialised_nodes: {specialised}')
                 # log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
                 # log.warning(f' - - modified_nodes: {modified_nodes}')
-                # log.warning(f' - - rendered_nodes: {rendered_nodes}')
+                log.warning(f' - - rendered_nodes: {rendered_nodes}')
                 log.warning(f' - - missing_nodes: {set(connectivity_graph.nodes)&self.__missing_identifiers}')
                 # log.warning(f' - - original_edges: {connectivity_graph.edges}')
                 # log.warning(f' - - modified_edged: {modified_edges}')
