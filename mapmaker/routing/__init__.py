@@ -695,8 +695,7 @@ class Network(object):
     def __feature_properties_from_node(self, connectivity_node: AnatomicalNode) -> dict[str, Any]:
     #=============================================================================================
         # Allow to use the identified alias
-        if ((matched := self.__flatmap.features_for_anatomical_node(connectivity_node)) is None) and \
-            (alias_node:=self.__flatmap.properties_store.node_aliases.get(connectivity_node)) is not None:
+        if (alias_node:=self.__flatmap.properties_store.node_aliases.get(connectivity_node.normalised())) is not None:
             connectivity_node = AnatomicalNode(alias_node)
 
         # Find the features and centrelines that corresponds to a connectivity node
@@ -713,7 +712,7 @@ class Network(object):
             if len(connectivity_node[1]) > 0:
                 log.error(f'Node {connectivity_node.full_name} has centreline inside layers')
             properties.update(self.__segment_properties_from_ids(centreline_ids))
-        elif matched is not None:
+        elif (matched := self.__flatmap.features_for_anatomical_node(connectivity_node)) is not None:
             properties['name'] = matched[0].name
             features = set(f for f in matched[1] if f.id is not None)
             if len(features):
@@ -1189,17 +1188,17 @@ class Network(object):
                         missing_edges += [edge]
 
                 log.warning(f' * * {path.id}: {"missing" if len(rendered_edges) == 0 else "partial"}')
-                # log.warning(f' - - generalised_nodes: {generalised}')
-                # log.warning(f' - - specialised_nodes: {specialised}')
-                # log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
-                # log.warning(f' - - modified_nodes: {modified_nodes}')
+                log.warning(f' - - generalised_nodes: {generalised}')
+                log.warning(f' - - specialised_nodes: {specialised}')
+                log.warning(f' - - original_nodes: {connectivity_graph.nodes}')
+                log.warning(f' - - modified_nodes: {modified_nodes}')
                 log.warning(f' - - rendered_nodes: {rendered_nodes}')
                 log.warning(f' - - missing_nodes: {set(connectivity_graph.nodes)&self.__missing_identifiers}')
-                # log.warning(f' - - original_edges: {connectivity_graph.edges}')
-                # log.warning(f' - - modified_edged: {modified_edges}')
-                # log.warning(f' - - rendered_edges: {rendered_edges}')
+                log.warning(f' - - original_edges: {connectivity_graph.edges}')
+                log.warning(f' - - modified_edged: {modified_edges}')
+                log.warning(f' - - rendered_edges: {rendered_edges}')
                 log.warning(f' - - missing_edges: {missing_edges}')
-                # log.warning(f' - - missing_segments: {missing_segments}')
+                log.warning(f' - - missing_segments: {missing_segments}')
 
             return route_graph
 

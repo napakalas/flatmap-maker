@@ -69,7 +69,7 @@ class PropertiesStore(object):
             for node_alias in FilePath(manifest.node_aliases).get_json():
                 node = node_alias.get('node')
                 alias = node_alias.get('alias')
-                node_aliases_dict[(node[0], tuple(node[1]))] = (alias[0], tuple(alias[1]))
+                node_aliases_dict[(node[0], *node[1])] = (alias[0], tuple(alias[1]))
         self.__node_aliases = node_aliases_dict
 
         # Connectivity from SciCrunch
