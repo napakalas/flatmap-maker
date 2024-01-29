@@ -608,7 +608,7 @@ if __name__ == '__main__':
 # Running:
 # python ./npo_check.py --manifest `manifest file` \
 #                       --artefact-dir `any directory to store generated files` \
-#                       --output-dir 'a directory to save csv file' \
+#                       --output-dir 'a directory to save csv file' 
 
 # Options:
 # --manifest `manifest file`
