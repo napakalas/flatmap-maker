@@ -766,14 +766,17 @@ class Network(object):
                 log.warning(f'{path.id}: {warning}')
 
         # In a case of FC map, we need to remove missing nodes
-        if settings.get('NPO', False):
+        if self.__flatmap.manifest.kind == 'functional':
             missing_nodes = set(self.__missing_identifiers) & set(connectivity_graph.nodes)
             for ms_node in missing_nodes:
+                ms_nodes = list(connectivity_graph[ms_node].values())[0].get('missing_nodes', [])
                 connectivity_graph.add_edges_from(
                     [
                         edge for edge in itertools.product(connectivity_graph.neighbors(ms_node), connectivity_graph.neighbors(ms_node))
                         if (edge[0]!=edge[1])
-                    ]
+                    ],
+                    completeness = False,
+                    missing_nodes = [ms_node] + ms_nodes
                 )
                 connectivity_graph.remove_nodes_from([ms_node])
 
@@ -984,6 +987,7 @@ class Network(object):
         terminal_graphs: dict[tuple, nx.Graph] = {}
         visited = set()
         for node, node_dict in connectivity_graph.nodes(data=True):
+            print('-', node, node_dict)
             if node not in visited and connectivity_graph.degree(node) == 1:
                 if node_dict['type'] == 'feature':
                     # First check node isn't already the end of a centreline
@@ -1032,9 +1036,11 @@ class Network(object):
                                         terminal_graph.nodes[closest_feature_id]['upstream'] = True
                                         terminal_graph.nodes[closest_feature_id]['segments'] = segments
                                     else:
+                                        if (debug_properties:=connectivity_graph.get_edge_data(node, neighbour_dict.get('node'))) is None:
+                                            debug_properties = {}
                                         neighbour_feature = get_node_feature(neighbour_dict)
                                         terminal_graph.add_node(neighbour_feature.id, feature=neighbour_feature)
-                                        terminal_graph.add_edge(node_feature.id, neighbour_feature.id)
+                                        terminal_graph.add_edge(node_feature.id, neighbour_feature.id, **debug_properties)
                                 elif neighbour_dict['type'] == 'segment':
                                     closest_feature_id = None
                                     closest_distance = None
@@ -1088,11 +1094,12 @@ class Network(object):
         # Now add edges from the terminal graphs to the path's route graph
         for terminal_graph in terminal_graphs.values():
             for node_0, node_1, upstream in terminal_graph.edges(data='upstream'):
+                debug_properties = terminal_graph.get_edge_data(node_0, node_1)
                 if not upstream:
                     upstream_node = None
                     route_graph.add_node(node_0, type='terminal')
                     route_graph.add_node(node_1, type='terminal')
-                    route_graph.add_edge(node_0, node_1, type='terminal')
+                    route_graph.add_edge(node_0, node_1, type='terminal', **debug_properties)
                 else:
                     upstream_node = node_0 if terminal_graph.nodes[node_0].get('upstream') else node_1
                     route_graph.nodes[upstream_node]['type'] = 'upstream'
@@ -1105,7 +1112,7 @@ class Network(object):
                         route_graph.nodes[upstream_node]['direction'] = direction/len(segment_ids)
                     else:
                         route_graph.nodes[upstream_node]['direction'] = list(route_graph.nodes[upstream_node]['edge-direction'].items())[0][1]
-                    route_graph.add_edge(node_0, node_1, type='upstream')
+                    route_graph.add_edge(node_0, node_1, type='upstream', **debug_properties)
                 if node_0 != upstream_node:
                     route_graph.nodes[node_0].update(set_properties_from_feature_id(node_0))
                 if node_1 != upstream_node:
