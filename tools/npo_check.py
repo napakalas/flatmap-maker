@@ -67,14 +67,14 @@ class FlatMapCheck:
         self.__species = self.__manifest.get('id')
         self.__output_dir = Path(args.output_dir)/f"{self.__species}_output"
         self.__output_dir.mkdir(parents=True, exist_ok=True)
-        self.__artifact_dir = Path(args.artifact_dir)
+        self.__artefact_dir = Path(args.artefact_dir)
         self.__clean_connectivity = args.clean_connectivity
         self.__align_general = args.align_general
         self.__k = args.k
 
-        # delete artifact files when clean_connectivity
+        # delete artefact files when clean_connectivity
         if self.__clean_connectivity:
-            for item in self.__artifact_dir.iterdir():
+            for item in self.__artefact_dir.iterdir():
                 if item.is_file():
                     item.unlink()
 
@@ -82,14 +82,14 @@ class FlatMapCheck:
         self.__npo_connectivities = self.__load_npo_connectivities()
 
         # loading already identified nodes
-        self.__map_node_name_file = self.__artifact_dir/'map_node_name.json'
+        self.__map_node_name_file = self.__artefact_dir/'map_node_name.json'
         self.__map_node_name = {}
         if self.__map_node_name_file.exists():
             with open(self.__map_node_name_file, 'r') as f:
                 self.__map_node_name = ast.literal_eval(json.load(f))
 
         # load knowledgebase
-        self.__knowledge_file = self.__artifact_dir/'knowledgebase.json'
+        self.__knowledge_file = self.__artefact_dir/'knowledgebase.json'
         self.__knowledge = {}
         if self.__knowledge_file.exists():
             with open(self.__knowledge_file, 'r') as f:
@@ -115,7 +115,7 @@ class FlatMapCheck:
             ('ilxtr:ParasympatheticPhenotype', 'ilxtr:PreGanglionicPhenotype'): 'pre-ganglionic parasympathetic',
             ('ilxtr:PreGanglionicPhenotype', 'ilxtr:SympatheticPhenotype'): 'pre-ganglionic sympathetic',
         }
-        knowledge_file = Path(self.__artifact_dir)/'npo_knowledge.json'
+        knowledge_file = self.__artefact_dir/'npo_knowledge.json'
         if knowledge_file.exists() and not self.__clean_connectivity:
             with open(knowledge_file, 'r') as f:
                 npo_connectivities = json.load(f)
@@ -132,19 +132,19 @@ class FlatMapCheck:
         return npo_connectivities
 
     def __generate_flatmap(self):
-        log_file = self.__artifact_dir/(f"{self.__species}.log")
-        # if log_file.exists():
-        #     log_file.unlink()
-        # options = {
-        #     'source': str(self.__manifest_file),
-        #     'output': str(self.__artifact_dir),
-        #     'ignoreGit': True,
-        #     'debug': True,
-        #     'logFile': str(log_file),
-        #     'cleanConnectivity': self.__clean_connectivity
-        # }
-        # mapmaker = MapMaker(options)
-        # mapmaker.make()
+        log_file = self.__artefact_dir/(f"{self.__species}.log")
+        if log_file.exists():
+            log_file.unlink()
+        options = {
+            'source': self.__manifest_file.as_posix(),
+            'output': self.__artefact_dir.as_posix(),
+            'ignoreGit': True,
+            'debug': True,
+            'logFile': log_file.as_posix(),
+            'cleanConnectivity': self.__clean_connectivity
+        }
+        mapmaker = MapMaker(options)
+        mapmaker.make()
         map_log = self.__load_log_file(log_file=log_file)
         return map_log
 
@@ -240,7 +240,7 @@ class FlatMapCheck:
         return name
 
     def __load_ancestors(self):
-        map_ancestor_file = self.__artifact_dir/'map_ancestor.json'
+        map_ancestor_file = self.__artefact_dir/'map_ancestor.json'
         map_ancestor = {}
         if map_ancestor_file.exists():
             with open(map_ancestor_file, 'r') as f:
@@ -580,8 +580,8 @@ def main():
     import sys
 
     parser = argparse.ArgumentParser(description="Checking nodes and edges completeness in the generated flatmap")
-    parser.add_argument('--manifest', dest='manifest_file', metavar='MANIFEST', help='Path of flatmap manifest')
-    parser.add_argument('--artifact-dir', dest='artifact_dir', metavar='ARTIFACT_DIR', help='Directory to store artifact files to check NPO completeness')
+    parser.add_argument('--manifest', dest='manifest', metavar='MANIFEST', help='Path of flatmap manifest')
+    parser.add_argument('--artefact-dir', dest='artefact_dir', metavar='ARTEFACT_DIR', help='Directory to store artefact files, e.g. generated maps and log file, to check NPO completeness')
     parser.add_argument('--output-dir', dest='output_dir', metavar='OUTPUT_DIR', help='Directory to store the check results')
     parser.add_argument('--clean-connectivity', dest='clean_connectivity', action='store_true', help='Run mapmaker as a clean connectivity (optional)')
     parser.add_argument('--align-general-term', dest='align_general', action='store_true', help='Find general terms of the missing nodes to align. This is useful for FC alignment')
@@ -608,12 +608,12 @@ if __name__ == '__main__':
 
 # Running:
 # python ./npo_check.py --manifest `manifest file` \
-#                       --artifact-dir `any directory to store generated files` \
+#                       --artefact-dir `any directory to store generated files` \
 #                       --output-dir 'a directory to save csv file' \
 
 # Options:
 # --manifest `manifest file`
-# --artifact-dir `any directory to store generated files`
+# --artefact-dir `any directory to store generated files`
 # --output-dir `a directory to save csv file`
 # --clean-connectivity
 # --align-general-term
