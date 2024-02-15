@@ -369,7 +369,6 @@ class FlatMapCheck:
             if parent_node not in current_alias:
                 current_alias[parent_node] = []
             current_alias[parent_node] += [df_missing.loc[idx].Node]
-            print(parent_node, df_missing.loc[idx].Node)
 
         current_alias = [
             {
@@ -444,7 +443,7 @@ class FlatMapCheck:
             for node in v.get('missing_nodes', []):
                 nodes_to_neuron_types[node] = nodes_to_neuron_types.get(node, []) + [k]
 
-        print('This is get missing nodes')
+        print('Organising missing nodes')
         df = pd.DataFrame(columns=['Node', 'Node Name', 'Appear in'])
         for node, k_types in tqdm(nodes_to_neuron_types.items()):
             name = self.__get_node_name(node)
@@ -518,7 +517,7 @@ class FlatMapCheck:
             'missing_segments',
             'rendered_edges'
         ]
-        print('This is organised map log')
+        print('Organising map log')
         for neuron, value in tqdm(self.__map_log.items()):
             info = {}
             for key in keys:
@@ -580,7 +579,7 @@ def main():
     import sys
 
     parser = argparse.ArgumentParser(description="Checking nodes and edges completeness in the generated flatmap")
-    parser.add_argument('--manifest', dest='manifest', metavar='MANIFEST', help='Path of flatmap manifest')
+    parser.add_argument('--manifest', dest='manifest_file', metavar='MANIFEST', help='Path of flatmap manifest')
     parser.add_argument('--artefact-dir', dest='artefact_dir', metavar='ARTEFACT_DIR', help='Directory to store artefact files, e.g. generated maps and log file, to check NPO completeness')
     parser.add_argument('--output-dir', dest='output_dir', metavar='OUTPUT_DIR', help='Directory to store the check results')
     parser.add_argument('--clean-connectivity', dest='clean_connectivity', action='store_true', help='Run mapmaker as a clean connectivity (optional)')

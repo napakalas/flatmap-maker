@@ -987,7 +987,6 @@ class Network(object):
         terminal_graphs: dict[tuple, nx.Graph] = {}
         visited = set()
         for node, node_dict in connectivity_graph.nodes(data=True):
-            print('-', node, node_dict)
             if node not in visited and connectivity_graph.degree(node) == 1:
                 if node_dict['type'] == 'feature':
                     # First check node isn't already the end of a centreline
