@@ -23,6 +23,7 @@ from collections import OrderedDict
 from datetime import datetime, timezone
 import os
 from typing import Optional
+import git
 
 #===============================================================================
 
@@ -148,11 +149,17 @@ class FlatMap(object):
     def initialise(self):
     #====================
         self.__created = None   # Set when map closed
+        repo = git.Repo(search_parent_directories=True)
         self.__metadata = {
             'id': self.__id,
             'name': self.__local_id,
             # Who made the map
-            'creator': 'mapmaker {}'.format(__version__),
+            # 'creator': 'mapmaker {}'.format(__version__),
+            'creator': {
+                'repo': repo.remotes.origin.url,
+                'branch': repo.active_branch.name,
+                'sha': repo.head.object.hexsha
+            },
             # The URL of the map's manifest
             'source': self.__manifest.url,
             'version': FLATMAP_VERSION
