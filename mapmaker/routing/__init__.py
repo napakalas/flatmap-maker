@@ -725,7 +725,6 @@ class Network(object):
                 properties['features'] = features
             elif connectivity_node not in self.__missing_identifiers:
                 properties['warning'] = f'Cannot find feature for connectivity node {connectivity_node} ({connectivity_node.full_name})'
-                log.warning(f'{connectivity_node} {matched} {features}')
                 self.__missing_identifiers.add(connectivity_node)
         return properties
 
@@ -1069,7 +1068,7 @@ class Network(object):
                                   and len(neighbour_dict.get('used', set())) == 0
                                   and node in (children := neighbour_dict.get('contains', set()))):
                                     # Replace the neighbour by it's neighbours which aren't children
-                                    downstream = set(connectivity_graph[neighbour]) - children
+                                    downstream = set(connectivity_graph[neighbour]) - {neighbour}
                                     neighbours.remove(neighbour)
                                     neighbours.update(downstream)
                             # Connect to each neighbour of interest, noting those that will
