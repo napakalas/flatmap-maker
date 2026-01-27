@@ -128,6 +128,7 @@ class ResolvedPath:
         self.__node_phenotypes = dict()
         self.__forward_connections = set()
         self.__node_nerves = set()
+        self.__node_mappings = set()
 
     @property
     def as_dict(self) -> dict[str, Any] :
@@ -142,7 +143,8 @@ class ResolvedPath:
             'connectivity': list(self.__connectivity),
             'node-phenotypes': self.__node_phenotypes,
             'forward-connections': list(self.__forward_connections),
-            'node-nerves': list(self.__node_nerves)
+            'node-nerves': list(self.__node_nerves),
+            'node-mappings': list(self.__node_mappings)
         }
         if len(self.__centrelines):
             result['centrelines'] = list(self.__centrelines)
@@ -238,6 +240,17 @@ class ResolvedPath:
             Rendered node_nerves
         """
         self.__node_nerves.update(node_nerves)
+
+    def extend_node_mappings(self, node_mappings: list[tuple]):
+        """
+        Associate rendered node mapping with the path.
+
+        Arguments:
+        ----------
+        node_mappings
+            Rendered node_mappings
+        """
+        self.__node_mappings.update(node_mappings)
 
 #===============================================================================
 
@@ -359,6 +372,11 @@ class ResolvedPathways:
             'node_nerves': [
                 list_to_tuple(n) for n in connectivity_graph.graph.get('nerves', [])
                 if list_to_tuple(n) in available_nodes
+            ],
+            'node_mappings': [
+                # mapping from rendered node to knowledge node
+                (list_to_tuple(connectivity_graph.nodes[node]['node']), list_to_tuple(node))
+                for node in connectivity_graph.nodes
             ]
         }
         return rendered_data
@@ -382,6 +400,7 @@ class ResolvedPathways:
         resolved_path.extend_node_phenotypes(rendered_data['node_phenotypes'])
         resolved_path.extend_forward_connections(rendered_data['forward_connections'])
         resolved_path.extend_node_nerves(rendered_data['node_nerves'])
+        resolved_path.extend_node_mappings(rendered_data['node_mappings'])
         if centrelines is not None:
             resolved_path.add_centrelines(centrelines)
 
