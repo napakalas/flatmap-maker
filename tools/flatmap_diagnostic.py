@@ -193,7 +193,7 @@ class SourceValidation:
 
         # svg info
         # check class, id, type
-        self.__svg_tags = {'id':{}, 'class':[]}
+        self.__svg_tags = {'id': {}, 'class': {}}
         for svg_source in self.__manifest['sources']:
             tree = etree.parse(manifest_file.with_name(svg_source['href']))
             root = tree.getroot()
