@@ -374,9 +374,12 @@ class ResolvedPathways:
                 if list_to_tuple(n) in available_nodes
             ],
             'node_mappings': [
-                # mapping from rendered node to knowledge node
-                (list_to_tuple(connectivity_graph.nodes[node]['node']), list_to_tuple(node))
-                for node in connectivity_graph.nodes
+                (list_to_tuple(data['node']), list_to_tuple(node))
+                for node, data in connectivity_graph.nodes(data=True)
+            ] + [
+                (list_to_tuple(cn['node']), list_to_tuple(n))
+                for _, data in connectivity_graph.nodes(data=True)
+                for n, cn in data.get('contraction', {}).items()
             ]
         }
         return rendered_data
