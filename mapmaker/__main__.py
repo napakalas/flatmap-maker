@@ -63,6 +63,8 @@ def arg_parser():
                         help="Do `TransitMap` optimisation of paths")
     generation_options.add_argument('--no-path-layout', dest='noPathLayout', action='store_true',
                         help="Don't do `TransitMap` optimisation of paths")
+    generation_options.add_argument('--bezier-smoothing', dest='bezierSmoothing', action='store_true',
+                        help="Enable Bezier path smoothing to match legacy map rendering")
     generation_options.add_argument('--publish', metavar='SPARC_DATASET',
                         help="Create a SPARC Dataset containing the map's sources and the generated map")
     generation_options.add_argument('--sckan-version', dest='sckanVersion', choices=['production', 'staging'],
