@@ -32,8 +32,8 @@ dependencies = [
     "cssselect2>=0.6.0",
     "webcolors>=1.12",
     "xmltodict>=0.12.0",
-    "flatmapknowledge @ https://github.com/AnatomicMaps/flatmap-knowledge/releases/download/v2.7.0/flatmapknowledge-2.7.0-py3-none-any.whl",
-    "mapknowledge @ https://github.com/AnatomicMaps/map-knowledge/releases/download/v1.5.0/mapknowledge-1.5.0-py3-none-any.whl",
+    "flatmapknowledge",
+    "mapknowledge",
     "Pyomo>=6.8",
     "svgwrite>=1.4.3",
     "XlsxWriter>=3.0.3",
@@ -93,3 +93,7 @@ include = ['mapmaker']
 pythonVersion = "3.12"
 venvPath = "."
 venv = ".venv"
+
+[tool.uv.sources]
+mapknowledge = { path = "../map-knowledge-napakalas/dist/mapknowledge-1.5.0-py3-none-any.whl" }
+flatmapknowledge = { url = "https://github.com/napakalas/flatmap-knowledge/releases/download/2026-03-02/flatmapknowledge-2.7.0-py3-none-any.whl" }
